@@ -44,8 +44,10 @@ function updateDepthIndicator(progress) {
 
 function setupSectionAnimations(section) {
   const revealTargets = section.querySelectorAll('[data-animate="card"], .depth-stage__meta, h2, p');
+  const imageCard = section.querySelector('[data-animate="image"]');
   const image = section.querySelector('[data-animate="image"] img');
   const bubbles = section.querySelectorAll('[data-animate="bubble"]');
+  const infoCard = section.querySelector('.depth-card--info');
 
   gsap.set(revealTargets, { autoAlpha: 0, y: 22 });
 
@@ -66,6 +68,30 @@ function setupSectionAnimations(section) {
   });
 
   if (image) {
+    if (imageCard) {
+      imageCard.classList.add('is-swimming');
+
+      // Floating fish placeholder motion: smooth lateral and vertical drift.
+      gsap.to(imageCard, {
+        x: gsap.utils.random(-12, 12),
+        y: gsap.utils.random(-10, 10),
+        rotation: gsap.utils.random(-1.4, 1.4),
+        duration: gsap.utils.random(3.2, 5.4),
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+      });
+    }
+
+    // Subtle scale breathing to feel like movement through water.
+    gsap.to(image, {
+      scale: 1.06,
+      duration: 4.2,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    });
+
     // Parallax image test tied to section scroll.
     gsap.fromTo(
       image,
@@ -81,6 +107,17 @@ function setupSectionAnimations(section) {
         }
       }
     );
+  }
+
+  if (infoCard) {
+    // Soft interaction feedback for explanatory cards.
+    infoCard.addEventListener('pointerenter', () => {
+      gsap.to(infoCard, { y: -4, duration: 0.3, ease: 'power1.out' });
+    });
+
+    infoCard.addEventListener('pointerleave', () => {
+      gsap.to(infoCard, { y: 0, duration: 0.3, ease: 'power1.out' });
+    });
   }
 
   bubbles.forEach((bubble, index) => {
