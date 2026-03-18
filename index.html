@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ocean Depths</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <h1>Ocean Depths</h1>
+  </header>
+
+  <aside class="depth-indicator" aria-label="Indicateur de profondeur" role="complementary">
+    <p class="depth-indicator__label">Depth</p>
+    <p class="depth-indicator__value" data-depth-counter>0 m</p>
+    <div class="depth-indicator__rule" aria-hidden="true">
+      <span class="depth-indicator__progress" data-depth-progress></span>
+    </div>
+  </aside>
+
+  <main class="depth-stages" id="content">
+    <section class="depth-stage" data-depth="0" aria-labelledby="surface-title">
+      <h2 id="surface-title">Surface</h2>
+      <p>Palier initial de navigation.</p>
+    </section>
+
+    <section class="depth-stage" data-depth="200" aria-labelledby="twilight-title">
+      <h2 id="twilight-title">Twilight Zone</h2>
+      <p>Zone de transition avec faible luminosité.</p>
+    </section>
+
+    <section class="depth-stage" data-depth="1000" aria-labelledby="midnight-title">
+      <h2 id="midnight-title">Midnight Zone</h2>
+      <p>Zone profonde et sombre.</p>
+    </section>
+
+    <section class="depth-stage" data-depth="4000" aria-labelledby="abyssal-title">
+      <h2 id="abyssal-title">Abyssal Zone</h2>
+      <p>Zone abyssale à forte pression.</p>
+    </section>
+
+    <section class="depth-stage" data-depth="6000" aria-labelledby="hadal-title">
+      <h2 id="hadal-title">Hadal Zone</h2>
+      <p>Fosses océaniques profondes.</p>
+    </section>
+
+    <section class="depth-stage" data-depth="10000" aria-labelledby="trench-title">
+      <h2 id="trench-title">Ocean Trench</h2>
+      <p>Point extrême de la progression.</p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>

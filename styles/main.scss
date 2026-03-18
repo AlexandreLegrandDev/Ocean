@@ -1,0 +1,122 @@
+/* ===== Reset ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Variables ===== */
+$color-surface: #d9efff;
+$color-shallow: #8fbfe6;
+$color-mid: #3e6f99;
+$color-deep: #11314d;
+$color-black: #050b12;
+$color-text: #eaf3fb;
+$color-border: #6f9fbe;
+$font-base: -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
+
+/* ===== Base ===== */
+body {
+  font-family: $font-base;
+  line-height: 1.5;
+  color: $color-text;
+  background: $color-black;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid $color-border;
+  background: #081420;
+}
+
+.site-header h1 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* ===== Layout ===== */
+.depth-stages {
+  display: flex;
+  flex-direction: column;
+}
+
+.depth-stage {
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  gap: 0.75rem;
+  padding: 3rem 1.5rem;
+  padding-right: 7rem;
+  border-bottom: 1px solid $color-border;
+}
+
+.depth-stage h2 {
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-weight: 600;
+}
+
+.depth-stage p {
+  max-width: 42ch;
+  color: #c9ddec;
+}
+
+/* Base brute pour visualiser la section active, à remplacer plus tard si besoin. */
+.depth-stage.is-active {
+  outline: 1px solid $color-surface;
+  outline-offset: -1px;
+}
+
+/* ===== Depth Indicator ===== */
+.depth-indicator {
+  position: fixed;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  width: 5rem;
+  display: grid;
+  justify-items: end;
+  gap: 0.5rem;
+}
+
+.depth-indicator__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #a8c6dc;
+}
+
+.depth-indicator__value {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.depth-indicator__rule {
+  position: relative;
+  width: 2px;
+  height: 240px;
+  background: #2f4f68;
+  border: 1px solid #4e7392;
+}
+
+.depth-indicator__progress {
+  position: absolute;
+  left: -1px;
+  bottom: -1px;
+  width: 2px;
+  height: 0;
+  background: $color-surface;
+}
+
+@media (max-width: 768px) {
+  .depth-stage {
+    padding-right: 5.5rem;
+  }
+
+  .depth-indicator {
+    right: 0.5rem;
+  }
+}
