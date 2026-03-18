@@ -16,38 +16,172 @@
     <p class="depth-indicator__value" data-depth-counter>0 m</p>
     <div class="depth-indicator__rule" aria-hidden="true">
       <span class="depth-indicator__progress" data-depth-progress></span>
+      <ul class="depth-indicator__ticks" data-depth-ticks>
+        <li class="depth-indicator__tick" data-tick-depth="0"><span>0m</span></li>
+        <li class="depth-indicator__tick" data-tick-depth="2000"><span>2000m</span></li>
+        <li class="depth-indicator__tick" data-tick-depth="4000"><span>4000m</span></li>
+        <li class="depth-indicator__tick" data-tick-depth="6000"><span>6000m</span></li>
+        <li class="depth-indicator__tick" data-tick-depth="8000"><span>8000m</span></li>
+        <li class="depth-indicator__tick" data-tick-depth="10000"><span>10000m</span></li>
+      </ul>
     </div>
   </aside>
 
   <main class="depth-stages" id="content">
     <section class="depth-stage" data-depth="0" aria-labelledby="surface-title">
-      <h2 id="surface-title">Surface</h2>
-      <p>Palier initial de navigation.</p>
+      <div class="depth-stage__inner">
+        <p class="depth-stage__meta">Depth marker: 0 m</p>
+        <h2 id="surface-title">Surface</h2>
+        <p>Palier initial de navigation.</p>
+
+        <div class="depth-stage__grid">
+          <figure class="depth-card depth-card--image" data-animate="image">
+            <img src="https://picsum.photos/seed/ocean-surface/900/520" alt="Ocean surface sample" loading="lazy">
+            <figcaption>Surface current sample</figcaption>
+          </figure>
+
+          <article class="depth-card" data-animate="card">
+            <h3>Visual Placeholder A</h3>
+            <p>Neutral content block used to validate reveal and staggered animations.</p>
+          </article>
+        </div>
+
+        <div class="depth-floaters" aria-hidden="true">
+          <span class="depth-floater" data-animate="bubble"></span>
+          <span class="depth-floater" data-animate="bubble"></span>
+          <span class="depth-floater" data-animate="bubble"></span>
+        </div>
+      </div>
     </section>
 
     <section class="depth-stage" data-depth="200" aria-labelledby="twilight-title">
-      <h2 id="twilight-title">Twilight Zone</h2>
-      <p>Zone de transition avec faible luminosité.</p>
+      <div class="depth-stage__inner">
+        <p class="depth-stage__meta">Depth marker: 200 m</p>
+        <h2 id="twilight-title">Twilight Zone</h2>
+        <p>Zone de transition avec faible luminosité.</p>
+
+        <div class="depth-stage__grid">
+          <figure class="depth-card depth-card--image" data-animate="image">
+            <img src="https://picsum.photos/seed/ocean-twilight/900/520" alt="Twilight zone sample" loading="lazy">
+            <figcaption>Filtered light sample</figcaption>
+          </figure>
+
+          <article class="depth-card" data-animate="card">
+            <h3>Visual Placeholder B</h3>
+            <p>Secondary block to test section transitions and timeline chaining.</p>
+          </article>
+        </div>
+
+        <div class="depth-floaters" aria-hidden="true">
+          <span class="depth-floater" data-animate="bubble"></span>
+          <span class="depth-floater" data-animate="bubble"></span>
+          <span class="depth-floater" data-animate="bubble"></span>
+        </div>
+      </div>
     </section>
 
     <section class="depth-stage" data-depth="1000" aria-labelledby="midnight-title">
-      <h2 id="midnight-title">Midnight Zone</h2>
-      <p>Zone profonde et sombre.</p>
+      <div class="depth-stage__inner">
+        <p class="depth-stage__meta">Depth marker: 1000 m</p>
+        <h2 id="midnight-title">Midnight Zone</h2>
+        <p>Zone profonde et sombre.</p>
+
+        <div class="depth-stage__grid">
+          <figure class="depth-card depth-card--image" data-animate="image">
+            <img src="https://picsum.photos/seed/ocean-midnight/900/520" alt="Midnight zone sample" loading="lazy">
+            <figcaption>Dark water sample</figcaption>
+          </figure>
+
+          <article class="depth-card" data-animate="card">
+            <h3>Visual Placeholder C</h3>
+            <p>Testing area for depth-linked animation states and text reveals.</p>
+          </article>
+        </div>
+
+        <div class="depth-floaters" aria-hidden="true">
+          <span class="depth-floater" data-animate="bubble"></span>
+          <span class="depth-floater" data-animate="bubble"></span>
+          <span class="depth-floater" data-animate="bubble"></span>
+        </div>
+      </div>
     </section>
 
     <section class="depth-stage" data-depth="4000" aria-labelledby="abyssal-title">
-      <h2 id="abyssal-title">Abyssal Zone</h2>
-      <p>Zone abyssale à forte pression.</p>
+      <div class="depth-stage__inner">
+        <p class="depth-stage__meta">Depth marker: 4000 m</p>
+        <h2 id="abyssal-title">Abyssal Zone</h2>
+        <p>Zone abyssale à forte pression.</p>
+
+        <div class="depth-stage__grid">
+          <figure class="depth-card depth-card--image" data-animate="image">
+            <img src="https://picsum.photos/seed/ocean-abyssal/900/520" alt="Abyssal zone sample" loading="lazy">
+            <figcaption>Abyssal plateau sample</figcaption>
+          </figure>
+
+          <article class="depth-card" data-animate="card">
+            <h3>Visual Placeholder D</h3>
+            <p>Block reserved for future image overlays and timing experiments.</p>
+          </article>
+        </div>
+
+        <div class="depth-floaters" aria-hidden="true">
+          <span class="depth-floater" data-animate="bubble"></span>
+          <span class="depth-floater" data-animate="bubble"></span>
+          <span class="depth-floater" data-animate="bubble"></span>
+        </div>
+      </div>
     </section>
 
     <section class="depth-stage" data-depth="6000" aria-labelledby="hadal-title">
-      <h2 id="hadal-title">Hadal Zone</h2>
-      <p>Fosses océaniques profondes.</p>
+      <div class="depth-stage__inner">
+        <p class="depth-stage__meta">Depth marker: 6000 m</p>
+        <h2 id="hadal-title">Hadal Zone</h2>
+        <p>Fosses océaniques profondes.</p>
+
+        <div class="depth-stage__grid">
+          <figure class="depth-card depth-card--image" data-animate="image">
+            <img src="https://picsum.photos/seed/ocean-hadal/900/520" alt="Hadal zone sample" loading="lazy">
+            <figcaption>Trench wall sample</figcaption>
+          </figure>
+
+          <article class="depth-card" data-animate="card">
+            <h3>Visual Placeholder E</h3>
+            <p>Extra target for scroll-scrub tests and delayed transitions.</p>
+          </article>
+        </div>
+
+        <div class="depth-floaters" aria-hidden="true">
+          <span class="depth-floater" data-animate="bubble"></span>
+          <span class="depth-floater" data-animate="bubble"></span>
+          <span class="depth-floater" data-animate="bubble"></span>
+        </div>
+      </div>
     </section>
 
     <section class="depth-stage" data-depth="10000" aria-labelledby="trench-title">
-      <h2 id="trench-title">Ocean Trench</h2>
-      <p>Point extrême de la progression.</p>
+      <div class="depth-stage__inner">
+        <p class="depth-stage__meta">Depth marker: 10000 m</p>
+        <h2 id="trench-title">Ocean Trench</h2>
+        <p>Point extrême de la progression.</p>
+
+        <div class="depth-stage__grid">
+          <figure class="depth-card depth-card--image" data-animate="image">
+            <img src="https://picsum.photos/seed/ocean-trench/900/520" alt="Ocean trench sample" loading="lazy">
+            <figcaption>Extreme depth sample</figcaption>
+          </figure>
+
+          <article class="depth-card" data-animate="card">
+            <h3>Visual Placeholder F</h3>
+            <p>Final checkpoint to verify end-of-page trigger behavior.</p>
+          </article>
+        </div>
+
+        <div class="depth-floaters" aria-hidden="true">
+          <span class="depth-floater" data-animate="bubble"></span>
+          <span class="depth-floater" data-animate="bubble"></span>
+          <span class="depth-floater" data-animate="bubble"></span>
+        </div>
+      </div>
     </section>
   </main>
 
