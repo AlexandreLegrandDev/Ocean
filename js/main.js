@@ -13,16 +13,7 @@ const ZONES = [
     temp: '15 – 25°C',
     pressure: '1 – 21 atm',
     light: '100%',
-    o2: '8 mg/L',
-    salinity: '35 PSU',
     bio: 2,
-    species: [
-      ['Aurelia aurita',        'Méduse lune'],
-      ['Chelonia mydas',        'Tortue verte'],
-      ['Tursiops truncatus',    'Grand dauphin'],
-      ['Thunnus thynnus',       'Thon rouge'],
-      ['Sphyrna lewini',        'Requin marteau'],
-    ],
   },
   {
     name: 'Zone Mésopélagique',
@@ -30,16 +21,7 @@ const ZONES = [
     temp: '4 – 15°C',
     pressure: '21 – 101 atm',
     light: '< 1%',
-    o2: '3 mg/L',
-    salinity: '34.5 PSU',
     bio: 55,
-    species: [
-      ['Dosidicus gigas',       'Calmar Humboldt'],
-      ['Architeuthis dux',      'Calmar géant'],
-      ['Idiacanthus fasciola',  'Poisson-dragon'],
-      ['Myctophidae spp.',      'Poisson-lanterne'],
-      ['Argyropelecus spp.',    'Poisson-hachette'],
-    ],
   },
   {
     name: 'Zone Bathypélagique',
@@ -47,16 +29,7 @@ const ZONES = [
     temp: '2 – 4°C',
     pressure: '101 – 400 atm',
     light: '0%',
-    o2: '1 mg/L',
-    salinity: '34.7 PSU',
     bio: 80,
-    species: [
-      ['Chauliodus sloani',     'Poisson vipère'],
-      ['Vampyroteuthis infernalis', 'Calmar vampire'],
-      ['Grimpoteuthis spp.',    'Poulpe Dumbo'],
-      ['Anoplogaster cornuta',  'Fangtooth'],
-      ['Macropinna microstoma', 'Poisson-baril'],
-    ],
   },
   {
     name: 'Zone Hadale',
@@ -64,16 +37,7 @@ const ZONES = [
     temp: '0 – 2°C',
     pressure: '400 – 1 100 atm',
     light: '0%',
-    o2: '< 0.5 mg/L',
-    salinity: '34.8 PSU',
     bio: 95,
-    species: [
-      ['Melanocetus johnsonii', 'Baudroie abyssale'],
-      ['Pseudoliparis swirei',  'Escargot des fosses'],
-      ['Hirondellea gigas',     'Amphipode géant'],
-      ['Periphylla periphylla', 'Méduse casque'],
-      ['Kiwa hirsuta',          'Crabe yéti'],
-    ],
   },
 ];
 
@@ -88,7 +52,7 @@ window.addEventListener('scroll', () => {
   depthFill.style.height = `${p * 100}%`;
   const d = Math.round(p * MAX_DEPTH);
   depthValue.textContent = d.toLocaleString('fr-FR');
-  sonarDepth.textContent = d.toLocaleString('fr-FR');
+  if (sonarDepth) sonarDepth.textContent = d.toLocaleString('fr-FR');
 }, { passive: true });
 
 // ─── MISE À JOUR PANNEAU DROIT selon zone active ───────────────
@@ -98,26 +62,17 @@ function updatePanel(zoneIdx) {
 
   document.getElementById('zoneName').textContent      = z.name;
   document.getElementById('zoneDepthLabel').textContent = z.depth;
-  document.getElementById('spZoneName').textContent    = z.name;
-  document.getElementById('envDepth').textContent      = z.depth;
+  
   document.getElementById('envTemp').textContent       = z.temp;
   document.getElementById('envPressure').textContent   = z.pressure;
   document.getElementById('envLight').textContent      = z.light;
-  document.getElementById('envO2').textContent         = z.o2;
-  document.getElementById('envSalinity').textContent   = z.salinity;
 
   // Bioluminescence
   document.getElementById('bioFill').style.width  = `${z.bio}%`;
   document.getElementById('bioLabel').textContent = `${z.bio}%`;
 
-  // Liste espèces
-  const list = document.getElementById('speciesList');
-  list.innerHTML = z.species.map(([name, fr]) =>
-    `<li><span>${name}</span><em>${fr}</em></li>`
-  ).join('');
-
-  // Animation subtile de la zone indicator
-  gsap.fromTo('#zoneIndicator', { opacity:.4 }, { opacity:1, duration:.4, ease:'power2.out' });
+  // Animation subtile du header
+  gsap.fromTo('.hud-header', { opacity:.4 }, { opacity:1, duration:.4, ease:'power2.out' });
 }
 
 // Zone triggers
@@ -308,14 +263,15 @@ const overlayClose  = document.getElementById('overlayClose');
 
 let isOpen = false;
 
-// Fetch image Wikipedia (pageimages API, CORS ok via origin=*)
+// Fetch image Wikipedia via Search API (plus robuste)
 async function fetchWikiImage(species) {
   const api = `https://en.wikipedia.org/w/api.php?action=query` +
-    `&titles=${encodeURIComponent(species)}` +
+    `&generator=search&gsrsearch=${encodeURIComponent(species)}&gsrlimit=1` +
     `&prop=pageimages&format=json&pithumbsize=1400&origin=*`;
   try {
     const res  = await fetch(api);
     const data = await res.json();
+    if (!data.query || !data.query.pages) return null;
     const page = Object.values(data.query.pages)[0];
     return page?.thumbnail?.source || null;
   } catch {
