@@ -325,6 +325,10 @@ function initSectionFishSwarm() {
 
     const defaultFishImages = ['assets/anime_fish_tilapia.png'];
 
+    const fishFilterOverrides = {
+        'assets/anime_fish_clown.png': 'saturate(1.08) brightness(1.02) contrast(1.04) drop-shadow(0 0 8px rgba(255,255,255,.08))'
+    };
+
     const fishImagesBySection = {
         'zone-0': [
             'assets/anime_fish_clown.png',
@@ -332,7 +336,8 @@ function initSectionFishSwarm() {
             'assets/anime_fish_hammer_shark.png',
             'assets/anime_fish_ray.png',
             'assets/anime_fish_tuna.png',
-            'assets/anime_fish_turtle.png'
+            'assets/anime_fish_turtle.png',
+            'assets/anime_fish_trumpet.png'
         ],
         'zone-1': [
             'assets/anime_fish_tilapia.png'
@@ -347,11 +352,32 @@ function initSectionFishSwarm() {
         return defaultFishImages;
     };
 
-    const pickRandomFishImage = images => {
-        if (!Array.isArray(images) || images.length === 0) {
-            return defaultFishImages[0];
+    const normalizeFishConfig = value => {
+        if (typeof value === 'string') {
+            return {
+                src: value,
+                filter: fishFilterOverrides[value] || null
+            };
         }
-        return images[Math.floor(Math.random() * images.length)];
+
+        if (value && typeof value === 'object' && typeof value.src === 'string') {
+            return {
+                src: value.src,
+                filter: value.filter || fishFilterOverrides[value.src] || null
+            };
+        }
+
+        return {
+            src: defaultFishImages[0],
+            filter: fishFilterOverrides[defaultFishImages[0]] || null
+        };
+    };
+
+    const pickRandomFishConfig = images => {
+        if (!Array.isArray(images) || images.length === 0) {
+            return normalizeFishConfig(defaultFishImages[0]);
+        }
+        return normalizeFishConfig(images[Math.floor(Math.random() * images.length)]);
     };
 
     const depthFilters = [
@@ -373,7 +399,8 @@ function initSectionFishSwarm() {
         for (let i = 0; i < fishCount; i++) {
             const fish = document.createElement('img');
             fish.className = 'zone__fish';
-            fish.src = pickRandomFishImage(fishImages);
+            const fishConfig = pickRandomFishConfig(fishImages);
+            fish.src = fishConfig.src;
             fish.alt = '';
             fish.setAttribute('aria-hidden', 'true');
 
@@ -395,7 +422,8 @@ function initSectionFishSwarm() {
             fish.style.width = `${Math.round(size)}px`;
             fish.style.top = `${y}%`;
             fish.style.opacity = `${(0.2 + scale * 0.14).toFixed(2)}`;
-            fish.style.setProperty('--fish-filter', depthFilters[Math.min(sectionIndex, depthFilters.length - 1)]);
+            const depthFilter = depthFilters[Math.min(sectionIndex, depthFilters.length - 1)];
+            fish.style.setProperty('--fish-filter', fishConfig.filter || depthFilter);
             fish.style.transformOrigin = '50% 50%';
 
             layer.appendChild(fish);
