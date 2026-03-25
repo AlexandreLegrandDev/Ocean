@@ -348,7 +348,7 @@ function initSectionFishSwarm() {
 
             const scale = 0.55 + Math.random() * 0.9;
             const size = 80 + Math.random() * 120;
-            const y = 12 + Math.random() * 76;
+            const y = 18 + Math.random() * 64;
             const direction = Math.random() > 0.5 ? 1 : -1; // 1 = droite, -1 = gauche
 
             // Plus on descend, plus la nage est lente.
@@ -392,7 +392,7 @@ function initSectionFishSwarm() {
             );
 
             gsap.to(fish, {
-                y: `+=${(Math.random() * 20 - 10).toFixed(2)}`,
+                y: `+=${(Math.random() * 14 - 7).toFixed(2)}`,
                 duration: 4.8 + Math.random() * 4.8,
                 repeat: -1,
                 yoyo: true,
