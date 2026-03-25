@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Découvrez l'Océan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Space+Grotesk:wght@300;500;700&display=swap"
+    rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
 
   <!-- ═══ DEPTH BAR ══════════════════════════════════════════════ -->
@@ -40,10 +44,13 @@
         <div class="hero__content">
           <p class="hero__eyebrow">Expérience immersive · Scroll pour plonger</p>
           <h1 class="hero__title">Découvrez<br><span>l'Océan</span></h1>
-          <p class="hero__desc">De la surface aux abysses — une descente dans le plus grand biome de notre planète, inexploré à 95%.</p>
+          <p class="hero__desc">De la surface aux abysses — une descente dans le plus grand biome de notre planète,
+            inexploré à 95%.</p>
           <a class="hero__cta" href="#zone-0">
             Plonger
-            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M3 9l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 16 16" fill="none">
+              <path d="M8 2v12M3 9l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
           </a>
         </div>
         <!-- Données hero bas -->
@@ -58,44 +65,45 @@
       <!-- ── ZONE 0–200m ─────────────────────────────────────── -->
       <section class="zone" id="zone-0" data-zone="0" data-depth-start="0" data-depth-end="200">
         <div class="zone__rays">
-          <div class="ray"></div><div class="ray"></div>
-          <div class="ray"></div><div class="ray"></div>
+          <div class="ray"></div>
+          <div class="ray"></div>
+          <div class="ray"></div>
+          <div class="ray"></div>
         </div>
 
         <div class="zone__header">
           <span class="zone__badge">Zone Euphotique</span>
           <h2 class="zone__title">0 — 200m</h2>
-          <p class="zone__intro">Là où la lumière règne. Les couleurs explosent, la vie abonde. La photosynthèse alimente toute la chaîne alimentaire marine.</p>
-        </div>
-
-        <!-- Méduse 1 -->
-        <div class="creature cr--right" data-name="Aurelia aurita" data-depth="0–200m" data-temp="15–25°C">
-          <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="g1" cx="50%" cy="38%" r="55%"><stop offset="0%" stop-color="#00E5FF" stop-opacity=".9"/><stop offset="100%" stop-color="#0096FF" stop-opacity=".2"/></radialGradient>
-              <filter id="f1"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
-            <ellipse cx="50" cy="45" rx="42" ry="38" fill="url(#g1)" filter="url(#f1)"/>
-            <ellipse cx="50" cy="45" rx="32" ry="28" fill="none" stroke="#00E5FF" stroke-width=".8" opacity=".3"/>
-            <path d="M28,75 Q22,100 16,130" stroke="#00E5FF" stroke-width="1.2" fill="none" opacity=".5"/>
-            <path d="M38,80 Q34,108 30,135" stroke="#00E5FF" stroke-width=".8" fill="none" opacity=".4"/>
-            <path d="M50,82 Q50,112 50,138" stroke="#00E5FF" stroke-width="1.2" fill="none" opacity=".5"/>
-            <path d="M62,80 Q66,108 70,135" stroke="#00E5FF" stroke-width=".8" fill="none" opacity=".4"/>
-            <path d="M72,75 Q78,100 84,130" stroke="#00E5FF" stroke-width="1.2" fill="none" opacity=".5"/>
-          </svg>
-          <div class="creature__label"><b>Aurelia aurita</b><small>Méduse lune</small></div>
+          <p class="zone__intro">Là où la lumière règne. Les couleurs explosent, la vie abonde. La photosynthèse
+            alimente toute la chaîne alimentaire marine.</p>
         </div>
 
         <!-- Grille espèces zone 0 -->
         <div class="species-grid">
-          <div class="sp-card" data-wiki="Amphiprioninae"><div class="sp-card__icon">🐠</div><b>Poisson-clown</b><small>Amphiprioninae · 1–15m</small></div>
-          <div class="sp-card" data-wiki="Sphyrna lewini"><div class="sp-card__icon">🦈</div><b>Requin marteau</b><small>Sphyrna lewini · 0–300m</small></div>
-          <div class="sp-card" data-wiki="Chelonia mydas"><div class="sp-card__icon">🐢</div><b>Tortue verte</b><small>Chelonia mydas · 0–200m</small></div>
-          <div class="sp-card" data-wiki="Tursiops truncatus"><div class="sp-card__icon">🐬</div><b>Grand dauphin</b><small>Tursiops truncatus · 0–100m</small></div>
-          <div class="sp-card" data-wiki="Mobula birostris"><div class="sp-card__icon">🦈</div><b>Raie manta</b><small>Mobula birostris · 0–120m</small></div>
-          <div class="sp-card" data-wiki="Octopus vulgaris"><div class="sp-card__icon">🐙</div><b>Pieuvre commune</b><small>Octopus vulgaris · 0–200m</small></div>
-          <div class="sp-card" data-wiki="Thunnus thynnus"><div class="sp-card__icon">🐟</div><b>Thon rouge</b><small>Thunnus thynnus · 0–500m</small></div>
-          <div class="sp-card" data-wiki="Aulostomus chinensis"><div class="sp-card__icon">🎺</div><b>Poisson-trompette</b><small>Aulostomus chinensis · 0–100m</small></div>
+          <div class="sp-card" data-wiki="Amphiprioninae">
+            <div class="sp-card__icon">🐠</div><b>Poisson-clown</b><small>Amphiprioninae · 1–15m</small>
+          </div>
+          <div class="sp-card" data-wiki="Sphyrna lewini">
+            <div class="sp-card__icon">🦈</div><b>Requin marteau</b><small>Sphyrna lewini · 0–300m</small>
+          </div>
+          <div class="sp-card" data-wiki="Chelonia mydas">
+            <div class="sp-card__icon">🐢</div><b>Tortue verte</b><small>Chelonia mydas · 0–200m</small>
+          </div>
+          <div class="sp-card" data-wiki="Tursiops truncatus">
+            <div class="sp-card__icon">🐬</div><b>Grand dauphin</b><small>Tursiops truncatus · 0–100m</small>
+          </div>
+          <div class="sp-card" data-wiki="Mobula birostris">
+            <div class="sp-card__icon">🦈</div><b>Raie manta</b><small>Mobula birostris · 0–120m</small>
+          </div>
+          <div class="sp-card" data-wiki="Octopus vulgaris">
+            <div class="sp-card__icon">🐙</div><b>Pieuvre commune</b><small>Octopus vulgaris · 0–200m</small>
+          </div>
+          <div class="sp-card" data-wiki="Thunnus thynnus">
+            <div class="sp-card__icon">🐟</div><b>Thon rouge</b><small>Thunnus thynnus · 0–500m</small>
+          </div>
+          <div class="sp-card" data-wiki="Aulostomus chinensis">
+            <div class="sp-card__icon">🎺</div><b>Poisson-trompette</b><small>Aulostomus chinensis · 0–100m</small>
+          </div>
         </div>
       </section>
 
@@ -104,45 +112,36 @@
         <div class="zone__header">
           <span class="zone__badge">Zone Mésopélagique</span>
           <h2 class="zone__title">200 — 1 000m</h2>
-          <p class="zone__intro">La pénombre s'installe. La lumière solaire s'éteint progressivement. La bioluminescence devient le seul langage dans ce crépuscule permanent.</p>
-        </div>
-
-        <!-- Calmar SVG -->
-        <div class="creature cr--left" data-name="Dosidicus gigas" data-depth="200–700m" data-temp="8–15°C">
-          <svg viewBox="0 0 90 210" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="g2" cx="50%" cy="30%" r="70%"><stop offset="0%" stop-color="#0096FF" stop-opacity=".8"/><stop offset="100%" stop-color="#020B1C" stop-opacity=".6"/></radialGradient>
-              <filter id="f2"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
-            <ellipse cx="45" cy="55" rx="26" ry="48" fill="url(#g2)" filter="url(#f2)"/>
-            <path d="M19,42 Q5,52 9,70 Q19,60 19,60Z" fill="#0096FF" opacity=".5"/>
-            <path d="M71,42 Q85,52 81,70 Q71,60 71,60Z" fill="#0096FF" opacity=".5"/>
-            <ellipse cx="45" cy="100" rx="18" ry="14" fill="#041C32" opacity=".9"/>
-            <circle cx="38" cy="98" r="4" fill="#00E5FF" opacity=".9"/>
-            <circle cx="52" cy="98" r="4" fill="#00E5FF" opacity=".9"/>
-            <circle cx="38" cy="98" r="2" fill="#FFF" opacity=".7"/>
-            <circle cx="52" cy="98" r="2" fill="#FFF" opacity=".7"/>
-            <path d="M30,112 Q22,145 18,185" stroke="#0096FF" stroke-width="1.8" fill="none" opacity=".7"/>
-            <path d="M38,116 Q32,150 28,195" stroke="#0096FF" stroke-width="1.3" fill="none" opacity=".6"/>
-            <path d="M45,118 Q45,153 45,205" stroke="#0096FF" stroke-width="1.8" fill="none" opacity=".7"/>
-            <path d="M52,116 Q58,150 62,195" stroke="#0096FF" stroke-width="1.3" fill="none" opacity=".6"/>
-            <path d="M60,112 Q68,145 72,185" stroke="#0096FF" stroke-width="1.8" fill="none" opacity=".7"/>
-            <circle cx="35" cy="45" r="2" fill="#00E5FF" opacity=".8"/>
-            <circle cx="55" cy="38" r="1.5" fill="#00E5FF" opacity=".7"/>
-            <circle cx="58" cy="62" r="2" fill="#00E5FF" opacity=".9"/>
-          </svg>
-          <div class="creature__label"><b>Dosidicus gigas</b><small>Calmar Humboldt</small></div>
+          <p class="zone__intro">La pénombre s'installe. La lumière solaire s'éteint progressivement. La bioluminescence
+            devient le seul langage dans ce crépuscule permanent.</p>
         </div>
 
         <div class="species-grid">
-          <div class="sp-card" data-wiki="Myctophidae"><div class="sp-card__icon">🐡</div><b>Poisson-lanterne</b><small>Myctophidae · 200–1000m</small></div>
-          <div class="sp-card" data-wiki="Architeuthis dux"><div class="sp-card__icon">🦑</div><b>Calmar géant</b><small>Architeuthis dux · 300–1000m</small></div>
-          <div class="sp-card" data-wiki="Hoplostethus atlanticus"><div class="sp-card__icon">🐟</div><b>Hoplostète orange</b><small>Hoplostethus atlanticus · 180–1800m</small></div>
-          <div class="sp-card" data-wiki="Argyropelecus"><div class="sp-card__icon">🪝</div><b>Poisson-hachette</b><small>Argyropelecus · 200–600m</small></div>
-          <div class="sp-card" data-wiki="Chiroteuthis"><div class="sp-card__icon">🦑</div><b>Chiroteuthis</b><small>Chiroteuthidae · 500–1000m</small></div>
-          <div class="sp-card" data-wiki="Idiacanthus fasciola"><div class="sp-card__icon">🐉</div><b>Poisson-dragon</b><small>Idiacanthus fasciola · 500–2000m</small></div>
-          <div class="sp-card" data-wiki="Oplophorus"><div class="sp-card__icon">🦐</div><b>Crevette oplophoridae</b><small>Oplophorus · 400–900m</small></div>
-          <div class="sp-card" data-wiki="Stomias boa"><div class="sp-card__icon">🐟</div><b>Stomias</b><small>Stomias boa · 200–800m</small></div>
+          <div class="sp-card" data-wiki="Myctophidae">
+            <div class="sp-card__icon">🐡</div><b>Poisson-lanterne</b><small>Myctophidae · 200–1000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Architeuthis dux">
+            <div class="sp-card__icon">🦑</div><b>Calmar géant</b><small>Architeuthis dux · 300–1000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Hoplostethus atlanticus">
+            <div class="sp-card__icon">🐟</div><b>Hoplostète orange</b><small>Hoplostethus atlanticus ·
+              180–1800m</small>
+          </div>
+          <div class="sp-card" data-wiki="Argyropelecus">
+            <div class="sp-card__icon">🪝</div><b>Poisson-hachette</b><small>Argyropelecus · 200–600m</small>
+          </div>
+          <div class="sp-card" data-wiki="Chiroteuthis">
+            <div class="sp-card__icon">🦑</div><b>Chiroteuthis</b><small>Chiroteuthidae · 500–1000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Idiacanthus fasciola">
+            <div class="sp-card__icon">🐉</div><b>Poisson-dragon</b><small>Idiacanthus fasciola · 500–2000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Oplophorus">
+            <div class="sp-card__icon">🦐</div><b>Crevette oplophoridae</b><small>Oplophorus · 400–900m</small>
+          </div>
+          <div class="sp-card" data-wiki="Stomias boa">
+            <div class="sp-card__icon">🐟</div><b>Stomias</b><small>Stomias boa · 200–800m</small>
+          </div>
         </div>
       </section>
 
@@ -151,46 +150,35 @@
         <div class="zone__header">
           <span class="zone__badge">Zone Bathypélagique</span>
           <h2 class="zone__title">1 000 — 4 000m</h2>
-          <p class="zone__intro">Obscurité totale. La pression atteint 400 atmosphères. La vie ici s'est adaptée à l'extrême — des formes que la lumière du jour n'a jamais touchées.</p>
-        </div>
-
-        <!-- Viperfish SVG -->
-        <div class="creature cr--right" data-name="Chauliodus sloani" data-depth="1000–4000m" data-temp="2–4°C">
-          <svg viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="g3" cx="20%" cy="50%" r="80%"><stop offset="0%" stop-color="#00E5FF" stop-opacity=".2"/><stop offset="100%" stop-color="#020B1C" stop-opacity=".95"/></radialGradient>
-              <filter id="f3"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
-            <path d="M25,45 Q70,18 145,42 Q165,47 192,45 Q165,47 145,48 Q70,72 25,45Z" fill="url(#g3)" filter="url(#f3)"/>
-            <path d="M25,45 Q8,32 3,22 Q6,45 3,68 Q8,58 25,45Z" fill="#041C32" opacity=".85"/>
-            <path d="M142,38 L148,28 L154,38" fill="#00E5FF" opacity=".85"/>
-            <path d="M150,39 L157,29 L163,39" fill="#00E5FF" opacity=".8"/>
-            <path d="M158,40 L165,31 L171,40" fill="#00E5FF" opacity=".7"/>
-            <path d="M142,52 L148,62 L154,52" fill="#00E5FF" opacity=".85"/>
-            <path d="M150,51 L157,61 L163,51" fill="#00E5FF" opacity=".8"/>
-            <circle cx="178" cy="45" r="5" fill="#020B1C"/>
-            <circle cx="178" cy="45" r="3" fill="#00E5FF" opacity=".9"/>
-            <circle cx="179" cy="44" r="1.5" fill="#FFF"/>
-            <circle cx="75" cy="43" r="2" fill="#00E5FF" opacity=".8"/>
-            <circle cx="95" cy="41" r="1.5" fill="#00E5FF" opacity=".9"/>
-            <circle cx="112" cy="42" r="2" fill="#00E5FF" opacity=".7"/>
-            <circle cx="130" cy="43" r="1.5" fill="#00E5FF" opacity=".85"/>
-            <!-- Leurre -->
-            <path d="M178,38 Q183,30 187,24" stroke="#00E5FF" stroke-width="1.2" fill="none" opacity=".7"/>
-            <circle cx="188" cy="22" r="5" fill="#00E5FF" opacity=".9" filter="url(#f3)"/>
-          </svg>
-          <div class="creature__label"><b>Chauliodus sloani</b><small>Poisson vipère</small></div>
+          <p class="zone__intro">Obscurité totale. La pression atteint 400 atmosphères. La vie ici s'est adaptée à
+            l'extrême — des formes que la lumière du jour n'a jamais touchées.</p>
         </div>
 
         <div class="species-grid">
-          <div class="sp-card" data-wiki="Vampyroteuthis infernalis"><div class="sp-card__icon">🦑</div><b>Calmar vampire</b><small>Vampyroteuthis infernalis · 600–3000m</small></div>
-          <div class="sp-card" data-wiki="Cyema atrum"><div class="sp-card__icon">🐠</div><b>Poisson-anguille</b><small>Cyema atrum · 1500–4000m</small></div>
-          <div class="sp-card" data-wiki="Coryphaenoides"><div class="sp-card__icon">🐟</div><b>Macrure</b><small>Coryphaenoides · 1000–4000m</small></div>
-          <div class="sp-card" data-wiki="Grimpoteuthis"><div class="sp-card__icon">🐙</div><b>Poulpe Dumbo</b><small>Grimpoteuthis · 1000–5000m</small></div>
-          <div class="sp-card" data-wiki="Macropinna microstoma"><div class="sp-card__icon">🔭</div><b>Poisson-baril</b><small>Macropinna microstoma · 600–800m</small></div>
-          <div class="sp-card" data-wiki="Anoplogaster cornuta"><div class="sp-card__icon">🦷</div><b>Fangtooth</b><small>Anoplogaster cornuta · 200–5000m</small></div>
-          <div class="sp-card" data-wiki="Phronima"><div class="sp-card__icon">🦐</div><b>Phronima</b><small>Hyperiidae · 200–2000m</small></div>
-          <div class="sp-card" data-wiki="Zoarcidae"><div class="sp-card__icon">🐟</div><b>Eelpout</b><small>Zoarcidae · 1000–4000m</small></div>
+          <div class="sp-card" data-wiki="Vampyroteuthis infernalis">
+            <div class="sp-card__icon">🦑</div><b>Calmar vampire</b><small>Vampyroteuthis infernalis · 600–3000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Eurypharynx pelecanoides">
+            <div class="sp-card__icon">🐍</div><b>Grandgousier</b><small>Eurypharynx pelecanoides · 500–3000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Coryphaenoides">
+            <div class="sp-card__icon">🐟</div><b>Macrure</b><small>Coryphaenoides · 1000–4000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Grimpoteuthis">
+            <div class="sp-card__icon">🐙</div><b>Poulpe Dumbo</b><small>Grimpoteuthis · 1000–5000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Macropinna microstoma">
+            <div class="sp-card__icon">🔭</div><b>Poisson-baril</b><small>Macropinna microstoma · 600–800m</small>
+          </div>
+          <div class="sp-card" data-wiki="Anoplogaster cornuta">
+            <div class="sp-card__icon">🦷</div><b>Fangtooth</b><small>Anoplogaster cornuta · 200–5000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Phronima">
+            <div class="sp-card__icon">🦐</div><b>Phronima</b><small>Hyperiidae · 200–2000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Chimaera monstrosa">
+            <div class="sp-card__icon">🐟</div><b>Chimère commune</b><small>Chimaera monstrosa · 300–1000m</small>
+          </div>
         </div>
       </section>
 
@@ -198,72 +186,38 @@
       <section class="zone zone--abyss" id="zone-3" data-zone="3" data-depth-start="4000" data-depth-end="11000">
         <canvas class="zone__canvas" id="abyssCanvas"></canvas>
 
-        <!-- Baudroie SVG -->
-        <div class="creature cr--right" data-name="Melanocetus johnsonii" data-depth="1000–4000m" data-temp="0–2°C">
-          <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="g4" cx="40%" cy="50%" r="70%"><stop offset="0%" stop-color="#020B1C" stop-opacity="0"/><stop offset="70%" stop-color="#020B1C" stop-opacity=".75"/><stop offset="100%" stop-color="#010204" stop-opacity=".97"/></radialGradient>
-              <filter id="f4"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-              <filter id="flure"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
-            <ellipse cx="72" cy="70" rx="58" ry="42" fill="#041C32" opacity=".97"/>
-            <ellipse cx="72" cy="70" rx="58" ry="42" fill="url(#g4)"/>
-            <path d="M128,65 Q158,44 172,34 Q162,70 172,96 Q158,86 128,75Z" fill="#041C32" opacity=".9"/>
-            <path d="M16,62 Q4,70 12,78 Q26,90 52,86 Q65,84 72,86 Q82,88 88,86" stroke="#00E5FF" stroke-width="1.5" fill="none" opacity=".65"/>
-            <path d="M18,64 L22,74 L26,64" fill="#00E5FF" opacity=".6"/>
-            <path d="M30,62 L35,73 L40,62" fill="#00E5FF" opacity=".55"/>
-            <path d="M44,60 L49,71 L54,60" fill="#00E5FF" opacity=".6"/>
-            <circle cx="40" cy="58" r="13" fill="#010A18"/>
-            <circle cx="40" cy="58" r="8" fill="#020B1C"/>
-            <circle cx="40" cy="58" r="5" fill="#00E5FF" opacity=".12"/>
-            <circle cx="42" cy="56" r="2" fill="#FFF" opacity=".55"/>
-            <path d="M62,34 Q67,18 72,8 Q75,2 80,10" stroke="#00E5FF" stroke-width="2" fill="none" opacity=".8"/>
-            <circle cx="82" cy="8" r="9" fill="#00E5FF" opacity=".9" filter="url(#flure)"/>
-            <circle cx="82" cy="8" r="4" fill="#FFF" opacity=".8"/>
-            <circle cx="78" cy="66" r="2" fill="#00E5FF" opacity=".7"/>
-            <circle cx="94" cy="62" r="1.5" fill="#00E5FF" opacity=".6"/>
-            <circle cx="108" cy="68" r="2" fill="#00E5FF" opacity=".8"/>
-            <circle cx="62" cy="76" r="1.5" fill="#00E5FF" opacity=".6"/>
-          </svg>
-          <div class="creature__label"><b>Melanocetus johnsonii</b><small>Baudroie abyssale</small></div>
-        </div>
-
-        <!-- Méduse abyssale -->
-        <div class="creature cr--left cr--mid" data-name="Periphylla periphylla" data-depth="200–4000m" data-temp="0–6°C">
-          <svg viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="g5" cx="50%" cy="38%" r="55%"><stop offset="0%" stop-color="#00E5FF" stop-opacity=".04"/><stop offset="60%" stop-color="#0096FF" stop-opacity=".22"/><stop offset="100%" stop-color="#010204" stop-opacity=".92"/></radialGradient>
-              <filter id="f5"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
-            <ellipse cx="40" cy="34" rx="34" ry="30" fill="url(#g5)" filter="url(#f5)"/>
-            <ellipse cx="40" cy="34" rx="26" ry="22" fill="none" stroke="#00E5FF" stroke-width=".6" opacity=".28"/>
-            <path d="M18,58 Q12,80 8,110" stroke="#00E5FF" stroke-width="1" fill="none" opacity=".38" filter="url(#f5)"/>
-            <path d="M28,62 Q24,85 22,115" stroke="#0096FF" stroke-width=".7" fill="none" opacity=".32"/>
-            <path d="M40,64 Q40,88 40,118" stroke="#00E5FF" stroke-width="1" fill="none" opacity=".38"/>
-            <path d="M52,62 Q56,85 58,115" stroke="#0096FF" stroke-width=".7" fill="none" opacity=".32"/>
-            <path d="M62,58 Q68,80 72,110" stroke="#00E5FF" stroke-width="1" fill="none" opacity=".38" filter="url(#f5)"/>
-            <circle cx="40" cy="22" r="2" fill="#00E5FF" opacity=".8"/>
-            <circle cx="30" cy="30" r="1.2" fill="#00E5FF" opacity=".6"/>
-            <circle cx="52" cy="28" r="1.5" fill="#00E5FF" opacity=".7"/>
-          </svg>
-          <div class="creature__label"><b>Periphylla periphylla</b><small>Méduse casque</small></div>
-        </div>
-
         <div class="zone__header">
           <span class="zone__badge zone__badge--abyss">Zone Hadale · Abysses</span>
           <h2 class="zone__title">4 000 — 11 000m</h2>
-          <p class="zone__intro">Le silence absolu. La pression équivaut à 50 avions de ligne empilés sur votre corps. La température frôle 0°C. Ici vivent des êtres que la science découvre encore.</p>
+          <p class="zone__intro">Le silence absolu. La pression équivaut à 50 avions de ligne empilés sur votre corps.
+            La température frôle 0°C. Ici vivent des êtres que la science découvre encore.</p>
         </div>
 
         <div class="species-grid">
-          <div class="sp-card sp-card--abyss" data-wiki="Bassozetus"><div class="sp-card__icon">🐟</div><b>Cusk eel</b><small>Bassozetus · 6000–8370m</small></div>
-          <div class="sp-card sp-card--abyss" data-wiki="Pseudoliparis swirei"><div class="sp-card__icon">🐟</div><b>Poisson des fosses</b><small>Pseudoliparis swirei · 7 966m</small></div>
-          <div class="sp-card sp-card--abyss" data-wiki="Hirondellea gigas"><div class="sp-card__icon">🦐</div><b>Amphipode géant</b><small>Hirondellea gigas · 10 900m</small></div>
-          <div class="sp-card sp-card--abyss" data-wiki="Polychaeta"><div class="sp-card__icon">🐛</div><b>Polychète abyssal</b><small>Polychaeta · 4000–11000m</small></div>
-          <div class="sp-card sp-card--abyss" data-wiki="Holothuroidea"><div class="sp-card__icon">🐚</div><b>Holothurie</b><small>Holothuria · 4000–10000m</small></div>
-          <div class="sp-card sp-card--abyss" data-wiki="Brisingida"><div class="sp-card__icon">⭐</div><b>Étoile abyssale</b><small>Brisingida · 3000–6000m</small></div>
-          <div class="sp-card sp-card--abyss" data-wiki="Kiwa hirsuta"><div class="sp-card__icon">🦀</div><b>Crabe yéti</b><small>Kiwa hirsuta · 2200–2500m</small></div>
-          <div class="sp-card sp-card--abyss" data-wiki="Opisthoteuthis"><div class="sp-card__icon">🐙</div><b>Céphalopode hadal</b><small>Opisthoteuthis · 4000–9000m</small></div>
+          <div class="sp-card sp-card--abyss" data-wiki="Abyssobrotula galatheae">
+            <div class="sp-card__icon">🐟</div><b>Abyssobrotula</b><small>Abyssobrotula galatheae · 8370m</small>
+          </div>
+          <div class="sp-card sp-card--abyss" data-wiki="Pseudoliparis swirei">
+            <div class="sp-card__icon">🐟</div><b>Poisson des fosses</b><small>Pseudoliparis swirei · 7 966m</small>
+          </div>
+          <div class="sp-card sp-card--abyss" data-wiki="Hirondellea gigas">
+            <div class="sp-card__icon">🦐</div><b>Amphipode géant</b><small>Hirondellea gigas · 10 900m</small>
+          </div>
+          <div class="sp-card sp-card--abyss" data-wiki="Polychaeta">
+            <div class="sp-card__icon">🐛</div><b>Polychète abyssal</b><small>Polychaeta · 4000–11000m</small>
+          </div>
+          <div class="sp-card sp-card--abyss" data-wiki="Holothuroidea">
+            <div class="sp-card__icon">🐚</div><b>Holothurie</b><small>Holothuria · 4000–10000m</small>
+          </div>
+          <div class="sp-card sp-card--abyss" data-wiki="Brisingida">
+            <div class="sp-card__icon">⭐</div><b>Étoile abyssale</b><small>Brisingida · 3000–6000m</small>
+          </div>
+          <div class="sp-card sp-card--abyss" data-wiki="Kiwa hirsuta">
+            <div class="sp-card__icon">🦀</div><b>Crabe yéti</b><small>Kiwa hirsuta · 2200–2500m</small>
+          </div>
+          <div class="sp-card sp-card--abyss" data-wiki="Opisthoteuthis">
+            <div class="sp-card__icon">🐙</div><b>Céphalopode hadal</b><small>Opisthoteuthis · 4000–9000m</small>
+          </div>
         </div>
 
         <!-- Message final -->
@@ -277,77 +231,77 @@
 
     </main><!-- /main-scroll -->
 
-    <!-- ── RIGHT: panneau fixe ────────────────────────────────── -->
+    <!-- ── RIGHT: panneau fixe (DASHBOARD) ─────────────────────── -->
     <aside class="side-panel" id="sidePanel">
 
-      <!-- Zone active indicator -->
-      <div class="sp-zone">
-        <div class="sp-zone__indicator" id="zoneIndicator">
-          <span class="sp-zone__dot"></span>
-          <span class="sp-zone__name" id="zoneName">Surface</span>
+      <!-- Zone indicator (Header) -->
+      <div class="hud-header">
+        <div class="hud-header__status">
+          <span class="pulse-dot"></span>
+          <span id="zoneName" class="hud-header__name">Surface</span>
         </div>
-        <div class="sp-zone__depth" id="zoneDepthLabel">0m</div>
+        <div class="hud-header__depth" id="zoneDepthLabel">0m</div>
       </div>
 
-      <!-- Tableau environnement -->
-      <div class="sp-block">
-        <h3 class="sp-block__title">Données environnementales</h3>
-        <table class="sp-table" id="envTable">
-          <tbody>
-            <tr><td>Profondeur</td><td class="val" id="envDepth">0 m</td></tr>
-            <tr><td>Température</td><td class="val" id="envTemp">15–25°C</td></tr>
-            <tr><td>Pression</td><td class="val" id="envPressure">1 atm</td></tr>
-            <tr><td>Luminosité</td><td class="val" id="envLight">100%</td></tr>
-            <tr><td>Oxygène dissous</td><td class="val" id="envO2">8 mg/L</td></tr>
-            <tr><td>Salinité</td><td class="val" id="envSalinity">35 PSU</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <!-- Contenu Scrollable du Dashboard -->
+      <div class="hud-scroll">
 
-      <!-- Bioluminescence gauge -->
-      <div class="sp-block">
-        <h3 class="sp-block__title">Bioluminescence</h3>
-        <div class="sp-gauge">
-          <div class="sp-gauge__bar">
-            <div class="sp-gauge__fill" id="bioFill" style="width:2%"></div>
+        <!-- Bloc 1 : Paramètres environnementaux -->
+        <div class="hud-block">
+          <h3 class="hud-title">Environnement</h3>
+          <div class="hud-grid">
+            <div class="hud-stat">
+              <span class="hud-stat__label">Température</span>
+              <span class="hud-stat__val" id="envTemp">15–25°C</span>
+            </div>
+            <div class="hud-stat">
+              <span class="hud-stat__label">Pression</span>
+              <span class="hud-stat__val" id="envPressure">1 atm</span>
+            </div>
+            <div class="hud-stat">
+              <span class="hud-stat__label">Luminosité</span>
+              <span class="hud-stat__val" id="envLight">100%</span>
+            </div>
+            <div class="hud-stat">
+              <span class="hud-stat__label">Biolum. <em id="bioLabel">2%</em></span>
+              <div class="hud-bar">
+                <div class="hud-bar__fill" id="bioFill" style="width:2%"></div>
+              </div>
+            </div>
           </div>
-          <span class="sp-gauge__label" id="bioLabel">2%</span>
         </div>
-      </div>
 
-      <!-- Top espèces zone active -->
-      <div class="sp-block">
-        <h3 class="sp-block__title">Espèces phares · <span id="spZoneName">Zone Euphotique</span></h3>
-        <ul class="sp-list" id="speciesList">
-          <li><span>Aurelia aurita</span><em>Méduse lune</em></li>
-          <li><span>Chelonia mydas</span><em>Tortue verte</em></li>
-          <li><span>Tursiops truncatus</span><em>Grand dauphin</em></li>
-          <li><span>Thunnus thynnus</span><em>Thon rouge</em></li>
-          <li><span>Sphyrna lewini</span><em>Requin marteau</em></li>
-        </ul>
-      </div>
+        <!-- Bloc 3 : Records -->
+        <div class="hud-block">
+          <h3 class="hud-title">Records</h3>
+          <ul class="hud-records">
+            <li><span>Profondeur max</span><b>11 034 m</b></li>
+            <li><span>Pression max</span><b>1 100 atm</b></li>
+            <li><span>Température min</span><b>−2°C</b></li>
+            <li><span>Océan inexploré</span><b class="cn">~95%</b></li>
+          </ul>
+        </div>
 
-      <!-- Records abyssaux -->
-      <div class="sp-block">
-        <h3 class="sp-block__title">Records océaniques</h3>
-        <table class="sp-table">
-          <tbody>
-            <tr><td>Profondeur max</td><td class="val">11 034 m</td></tr>
-            <tr><td>Température min</td><td class="val">−2°C</td></tr>
-            <tr><td>Pression max</td><td class="val">1 100 atm</td></tr>
-            <tr><td>Espèce + profonde</td><td class="val"><em>Pseudoliparis</em></td></tr>
-            <tr><td>Plongée humaine max</td><td class="val">11 km (robot)</td></tr>
-            <tr><td>% inexploré</td><td class="val cn">~95%</td></tr>
-          </tbody>
-        </table>
-      </div>
+        <!-- Bloc 4 : Sonar -->
+        <div class="hud-block hud-block--sonar">
+          <h3 class="hud-title">Sonar Actif</h3>
+          <div class="sonar-wrapper">
+            <div class="sonar-view">
+              <div class="sonar-grid"></div>
+              <div class="sonar-sweep"></div>
+              <span class="sonar-blip sb-1"></span>
+              <span class="sonar-blip sb-2"></span>
+              <span class="sonar-blip sb-3"></span>
+            </div>
+            <div class="sonar-info">
+              <span class="sonar-status">● Scan en cours</span>
+              <span class="sonar-depth">Écho: <b id="sonarDepth">0</b>m</span>
+              <span class="sonar-freq">84 kHz</span>
+            </div>
+          </div>
+        </div>
 
-      <!-- Scan signal -->
-      <div class="sp-block sp-block--scan">
-        <div class="scan-line"></div>
-        <p class="scan-label">Sonar actif · <span id="sonarDepth">0</span>m</p>
       </div>
-
     </aside>
 
   </div><!-- /layout -->
@@ -367,4 +321,5 @@
 
   <script src="js/main.js"></script>
 </body>
+
 </html>
