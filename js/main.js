@@ -320,6 +320,98 @@ if (heroCta) {
     });
 }
 
+function initSectionFishSwarm() {
+    if (isReducedMotion()) return;
+
+    const fishImage = 'assets/anime_fish_tilapia.png';
+    const depthFilters = [
+        'hue-rotate(170deg) saturate(1.1) brightness(0.92) contrast(1.05) drop-shadow(0 0 10px rgba(0,160,255,.22))',
+        'hue-rotate(185deg) saturate(1.05) brightness(0.8) contrast(1.08) drop-shadow(0 0 10px rgba(0,130,230,.2))',
+        'hue-rotate(200deg) saturate(1) brightness(0.68) contrast(1.1) drop-shadow(0 0 10px rgba(0,95,190,.18))',
+        'hue-rotate(215deg) saturate(0.92) brightness(0.58) contrast(1.14) drop-shadow(0 0 10px rgba(0,70,150,.16))'
+    ];
+
+    document.querySelectorAll('.zone').forEach((section, sectionIndex) => {
+        const layer = document.createElement('div');
+        layer.className = 'zone__fish-layer';
+        section.appendChild(layer);
+
+        const density = Math.max(3, Math.min(8, Math.round(section.offsetWidth / 220)));
+        const fishCount = density + Math.floor(Math.random() * 2);
+
+        for (let i = 0; i < fishCount; i++) {
+            const fish = document.createElement('img');
+            fish.className = 'zone__fish';
+            fish.src = fishImage;
+            fish.alt = '';
+            fish.setAttribute('aria-hidden', 'true');
+
+            const scale = 0.55 + Math.random() * 0.9;
+            const size = 80 + Math.random() * 120;
+            const y = 12 + Math.random() * 76;
+            const direction = Math.random() > 0.5 ? 1 : -1; // 1 = droite, -1 = gauche
+
+            // Plus on descend, plus la nage est lente.
+            const depthSpeedFactor = 1 + sectionIndex * 0.28;
+
+            // Plus le poisson est petit, plus il nage lentement (effet profondeur de champ).
+            const sizeNormalized = (scale - 0.55) / 0.9; // 0..1
+            const sizeSpeedFactor = 1.35 - sizeNormalized * 0.55;
+
+            const duration = (26 + Math.random() * 24) * depthSpeedFactor * sizeSpeedFactor;
+            const mirroredScaleX = direction === 1 ? scale : -scale;
+
+            fish.style.width = `${Math.round(size)}px`;
+            fish.style.top = `${y}%`;
+            fish.style.opacity = `${(0.2 + scale * 0.14).toFixed(2)}`;
+            fish.style.setProperty('--fish-filter', depthFilters[Math.min(sectionIndex, depthFilters.length - 1)]);
+            fish.style.transformOrigin = '50% 50%';
+
+            layer.appendChild(fish);
+
+            const startX = direction === 1 ? -260 : section.offsetWidth + 260;
+            const endX = direction === 1 ? section.offsetWidth + 260 : -260;
+
+            gsap.fromTo(fish,
+                {
+                    x: startX,
+                    scale,
+                    // Le sprite source est considéré orienté vers la droite.
+                    // Quand le poisson nage vers la gauche, on applique un miroir horizontal.
+                    scaleX: mirroredScaleX,
+                    rotate: 0
+                },
+                {
+                    x: endX,
+                    scaleX: mirroredScaleX,
+                    duration,
+                    ease: 'none',
+                    repeat: -1,
+                    delay: -Math.random() * duration
+                }
+            );
+
+            gsap.to(fish, {
+                y: `+=${(Math.random() * 20 - 10).toFixed(2)}`,
+                duration: 4.8 + Math.random() * 4.8,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut'
+            });
+
+            gsap.to(fish, {
+                rotate: direction === 1 ? 1.6 : -1.6,
+                duration: 3.8 + Math.random() * 2.4,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut'
+            });
+        }
+    });
+}
+
+initSectionFishSwarm();
+
 ScrollTrigger.refresh();
 
 const O = {

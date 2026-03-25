@@ -392,6 +392,24 @@ button:focus-visible {
   pointer-events: none;
   z-index: 0;
 }
+.zone__fish-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.zone__fish {
+  position: absolute;
+  left: 0;
+  width: 110px;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform, opacity;
+  filter: var(--fish-filter);
+  mix-blend-mode: normal;
+}
 .zone__header {
   position: relative;
   z-index: 2;
@@ -433,6 +451,9 @@ button:focus-visible {
   .zone {
     padding: 4rem 1.5rem;
   }
+  .zone__fish {
+    opacity: 0.24 !important;
+  }
 }
 
 @keyframes ray {
@@ -450,7 +471,8 @@ button:focus-visible {
   gap: 1px;
   margin-top: 2.5rem;
   border: 1px solid rgba(0, 229, 255, 0.08);
-  background: rgba(0, 229, 255, 0.04);
+  background: linear-gradient(180deg, rgba(2, 11, 28, 0.5) 0%, rgba(2, 11, 28, 0.35) 100%);
+  backdrop-filter: blur(7px);
   position: relative;
   z-index: 2;
 }
@@ -515,6 +537,10 @@ button:focus-visible {
   align-items: center;
   gap: 1.5rem;
   clear: both;
+  background: linear-gradient(180deg, rgba(2, 11, 28, 0.42) 0%, rgba(2, 11, 28, 0.26) 100%);
+  backdrop-filter: blur(7px);
+  border: 1px solid rgba(0, 229, 255, 0.08);
+  border-radius: 8px;
 }
 .abyss-finale__line {
   width: 1px;
@@ -1122,4 +1148,12 @@ body.is-high-contrast .abyss-finale__back,
 body.is-high-contrast .sp-overlay__wiki {
   border-color: rgba(255, 255, 255, 0.55);
   color: #FFFFFF;
+}
+
+.zone__header {
+  background: linear-gradient(180deg, rgba(2, 11, 28, 0.45) 0%, rgba(2, 11, 28, 0.22) 100%);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 229, 255, 0.08);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
 }

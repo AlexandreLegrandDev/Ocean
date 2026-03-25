@@ -452,6 +452,26 @@ button:focus-visible {
     z-index: 0;
   }
 
+  &__fish-layer {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &__fish {
+    position: absolute;
+    left: 0;
+    width: 110px;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+    will-change: transform, opacity;
+    filter: var(--fish-filter);
+    mix-blend-mode: normal;
+  }
+
   &__header {
     position: relative;
     z-index: 2;
@@ -496,6 +516,10 @@ button:focus-visible {
 
   @media (max-width: 768px) {
     padding: 4rem 1.5rem;
+
+    &__fish {
+      opacity: .24 !important;
+    }
   }
 }
 
@@ -518,7 +542,8 @@ button:focus-visible {
   gap: 1px;
   margin-top: 2.5rem;
   border: 1px solid rgba($cn, .08);
-  background: rgba($cn, .04);
+  background: linear-gradient(180deg, rgba($c0, .5) 0%, rgba($c0, .35) 100%);
+  backdrop-filter: blur(7px);
   position: relative;
   z-index: 2;
 
@@ -589,6 +614,10 @@ button:focus-visible {
   align-items: center;
   gap: 1.5rem;
   clear: both;
+  background: linear-gradient(180deg, rgba($c0, .42) 0%, rgba($c0, .26) 100%);
+  backdrop-filter: blur(7px);
+  border: 1px solid rgba($cn, .08);
+  border-radius: 8px;
 
   &__line {
     width: 1px;
@@ -1263,4 +1292,12 @@ body.is-high-contrast {
     border-color: rgba($cw, .55);
     color: $cw;
   }
+}
+
+.zone__header {
+  background: linear-gradient(180deg, rgba($c0, .45) 0%, rgba($c0, .22) 100%);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba($cn, .08);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
 }
