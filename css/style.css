@@ -388,50 +388,6 @@ a {
     opacity: 0.2;
   }
 }
-.creature {
-  position: relative;
-  z-index: 3;
-  margin-bottom: 1.5rem;
-  display: inline-block;
-  cursor: pointer;
-}
-.creature svg {
-  display: block;
-  filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.45));
-  transition: filter 0.35s ease;
-}
-.creature:hover svg {
-  filter: drop-shadow(0 0 22px rgba(0, 229, 255, 0.85));
-}
-.creature__label {
-  margin-top: 0.6rem;
-  text-align: center;
-}
-.creature__label b {
-  display: block;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 0.65rem;
-  color: #00E5FF;
-  letter-spacing: 0.04em;
-}
-.creature__label small {
-  font-size: 0.58rem;
-  color: rgba(255, 255, 255, 0.4);
-}
-.creature.cr--right {
-  float: right;
-  margin-left: 2rem;
-  width: clamp(120px, 20vw, 220px);
-}
-.creature.cr--left {
-  float: left;
-  margin-right: 2rem;
-  width: clamp(90px, 16vw, 160px);
-}
-.creature.cr--mid {
-  margin-top: 4rem;
-}
-
 .species-grid {
   clear: both;
   display: grid;
@@ -852,7 +808,7 @@ a {
   font-weight: 500;
 }
 
-.zone__header, .species-grid, .creature, .abyss-finale {
+.zone__header, .species-grid, .abyss-finale {
   opacity: 0;
   transform: translateY(28px);
 }
