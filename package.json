@@ -5,8 +5,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "a11y:axe": "axe http://127.0.0.1:4173 --exit",
-    "a11y:lighthouse": "lighthouse http://127.0.0.1:4173 --only-categories=accessibility --output html --output-path ./reports/lighthouse-accessibility.html --chrome-flags=\"--headless=new\""
+    "a11y:axe": "npx --yes @axe-core/cli http://127.0.0.1:4173 --exit",
+    "a11y:lighthouse": "npx --yes lighthouse http://127.0.0.1:4173 --only-categories=accessibility --output html --output-path ./reports/lighthouse-accessibility.html --chrome-flags=\"--headless=new\""
   },
   "devDependencies": {
     "@axe-core/cli": "^4.10.2",

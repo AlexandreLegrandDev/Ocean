@@ -390,6 +390,7 @@ async function openOverlay(card) {
     O.bg.style.backgroundImage = '';
     O.s.style.display = 'block';
     O.el.classList.add('is-open');
+    O.el.removeAttribute('inert');
     O.el.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     isOpen = true;
@@ -435,6 +436,7 @@ function closeOverlay() {
     const completeClose = () => {
         O.el.classList.remove('is-open');
         O.el.setAttribute('aria-hidden', 'true');
+        O.el.setAttribute('inert', '');
         O.bg.style.backgroundImage = '';
         O.el.style.opacity = '0';
 

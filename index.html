@@ -23,22 +23,24 @@
       aria-atomic="true"></p>
 
     <!-- ═══ DEPTH BAR ══════════════════════════════════════════════ -->
-    <div class="depth-bar" id="depthBar" role="progressbar"
-      aria-label="Profondeur actuelle" aria-valuemin="0" aria-valuemax="11000"
-      aria-valuenow="0" aria-valuetext="0 mètre">
-      <span class="depth-bar__top" aria-hidden="true">0m</span>
-      <div class="depth-bar__track">
-        <div class="depth-bar__fill" id="depthFill">
-          <div class="depth-bar__cursor">
-            <span class="depth-bar__dot"></span>
+    <aside aria-label="Indicateur de profondeur">
+      <div class="depth-bar" id="depthBar" role="progressbar"
+        aria-label="Profondeur actuelle" aria-valuemin="0" aria-valuemax="11000"
+        aria-valuenow="0" aria-valuetext="0 mètre">
+        <span class="depth-bar__top" aria-hidden="true">0m</span>
+        <div class="depth-bar__track">
+          <div class="depth-bar__fill" id="depthFill">
+            <div class="depth-bar__cursor">
+              <span class="depth-bar__dot"></span>
+            </div>
           </div>
         </div>
+        <span class="depth-bar__bot" aria-hidden="true">11km</span>
+        <div class="depth-bar__bubble" id="depthBubble" aria-hidden="true">
+          <span id="depthValue">0</span>m
+        </div>
       </div>
-      <span class="depth-bar__bot" aria-hidden="true">11km</span>
-      <div class="depth-bar__bubble" id="depthBubble" aria-hidden="true">
-        <span id="depthValue">0</span>m
-      </div>
-    </div>
+    </aside>
 
     <!-- ═══ LAYOUT (2/3 scroll + 1/3 fixed panel) ════════════════ -->
     <div class="layout">
@@ -353,7 +355,7 @@
         </div>
 
         <!-- Contenu Scrollable du Dashboard -->
-        <div class="hud-scroll">
+        <div class="hud-scroll" tabindex="0" aria-label="Données océaniques détaillées">
 
           <!-- Bloc 1 : Paramètres environnementaux -->
           <section class="hud-block" role="region" aria-labelledby="hud-environment-title">
@@ -420,7 +422,7 @@
     <!-- SPECIES OVERLAY -->
     <div class="sp-overlay" id="spOverlay" role="dialog" aria-modal="true"
       aria-labelledby="overlayName" aria-describedby="overlayMeta"
-      aria-hidden="true">
+      aria-hidden="true" inert>
       <div class="sp-overlay__bg" id="overlayBg"></div>
       <div class="sp-overlay__spinner" id="overlaySpinner"></div>
       <div class="sp-overlay__info" id="overlayInfo" tabindex="-1">
