@@ -22,8 +22,24 @@ const STORAGE_KEYS = {
 const motionToggleBtn = EL('motionToggle');
 const contrastToggleBtn = EL('contrastToggle');
 
-let forceReducedMotion = localStorage.getItem(STORAGE_KEYS.forceReducedMotion) === 'true';
-let highContrastEnabled = localStorage.getItem(STORAGE_KEYS.highContrast) === 'true';
+function safeStorageGet(key) {
+    try {
+        return localStorage.getItem(key);
+    } catch {
+        return null;
+    }
+}
+
+function safeStorageSet(key, value) {
+    try {
+        localStorage.setItem(key, value);
+    } catch {
+        // Storage is unavailable (privacy mode / blocked context). Keep runtime functional.
+    }
+}
+
+let forceReducedMotion = safeStorageGet(STORAGE_KEYS.forceReducedMotion) === 'true';
+let highContrastEnabled = safeStorageGet(STORAGE_KEYS.highContrast) === 'true';
 
 const isReducedMotion = () => forceReducedMotion || motionQuery.matches;
 
@@ -64,7 +80,7 @@ applyAccessibilityPreferences();
 if (motionToggleBtn) {
     motionToggleBtn.addEventListener('click', () => {
         forceReducedMotion = !forceReducedMotion;
-        localStorage.setItem(STORAGE_KEYS.forceReducedMotion, String(forceReducedMotion));
+        safeStorageSet(STORAGE_KEYS.forceReducedMotion, String(forceReducedMotion));
         applyAccessibilityPreferences();
         setAnnouncerText(
             forceReducedMotion
@@ -78,7 +94,7 @@ if (motionToggleBtn) {
 if (contrastToggleBtn) {
     contrastToggleBtn.addEventListener('click', () => {
         highContrastEnabled = !highContrastEnabled;
-        localStorage.setItem(STORAGE_KEYS.highContrast, String(highContrastEnabled));
+        safeStorageSet(STORAGE_KEYS.highContrast, String(highContrastEnabled));
         applyAccessibilityPreferences();
         setAnnouncerText(
             highContrastEnabled
@@ -309,13 +325,29 @@ ScrollTrigger.refresh();
 const O = {
     el: EL('spOverlay'),
     bg: EL('overlayBg'),
-    s: EL('overlaySpinner'),
     i: EL('overlayInfo'),
     c: EL('overlayClose'),
     l: EL('overlayLatin'),
     n: EL('overlayName'),
     m: EL('overlayMeta'),
     a: EL('overlayLink')
+};
+
+const DEFAULT_SPECIES_IMAGE = 'assets/calamar_geant.jpg';
+const SPECIES_IMAGE_BY_WIKI = {
+    'Amphiprioninae': 'assets/clown_fish.jpg',
+    'Sphyrna lewini': 'assets/hammer_shark.jpg',
+    'Chelonia mydas': 'assets/sea_turtle.jpg',
+    'Tursiops truncatus': 'assets/dauphin.png',
+    'Mobula birostris': 'assets/raie.png',
+    'Octopus vulgaris': 'assets/pieuvre.png',
+    'Thunnus thynnus': 'assets/thon.png',
+    'Aulostomus chinensis': 'assets/poisson_trompette.png',
+    'Myctophidae': 'assets/lantern_fish.png',
+    'Architeuthis dux': 'assets/calamar_geant.jpg',
+    'Hoplostethus atlanticus': 'assets/orange_roughy.jpg',
+    'Argyropelecus': 'assets/poisson_hachette.png',
+    'Chiroteuthis': 'assets/Chiroteuthis.png'
 };
 
 let isOpen = false;
@@ -366,17 +398,22 @@ function setCardAccessibilityLabel(card) {
     card.setAttribute('aria-label', label);
 }
 
-async function fetchWiki(sp) {
-    try {
-        const res = await fetch(`https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(sp)}&gsrlimit=1&prop=pageimages&format=json&pithumbsize=1400&origin=*`);
-        const data = await res.json();
-        return Object.values(data.query?.pages || {})[0]?.thumbnail?.source || null;
-    } catch {
-        return null;
-    }
+function getSpeciesImagePath(wikiName) {
+    return SPECIES_IMAGE_BY_WIKI[wikiName] || DEFAULT_SPECIES_IMAGE;
 }
 
-async function openOverlay(card) {
+function setOverlayBackgroundImage(imagePath) {
+    const img = new Image();
+    img.onload = () => {
+        O.bg.style.backgroundImage = `url('${imagePath}')`;
+    };
+    img.onerror = () => {
+        O.bg.style.backgroundImage = `url('${DEFAULT_SPECIES_IMAGE}')`;
+    };
+    img.src = imagePath;
+}
+
+function openOverlay(card) {
     const wikiName = card.dataset.wiki;
     if (!wikiName || !O.el) return;
 
@@ -387,8 +424,9 @@ async function openOverlay(card) {
     O.m.textContent = card.querySelector('small')?.textContent || '';
     O.a.href = `https://en.wikipedia.org/wiki/${encodeURIComponent(wikiName)}`;
 
-    O.bg.style.backgroundImage = '';
-    O.s.style.display = 'block';
+    const imagePath = getSpeciesImagePath(wikiName);
+
+    setOverlayBackgroundImage(imagePath);
     O.el.classList.add('is-open');
     O.el.removeAttribute('inert');
     O.el.setAttribute('aria-hidden', 'false');
@@ -401,30 +439,8 @@ async function openOverlay(card) {
     } else {
         gsap.fromTo(O.el, { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' });
         gsap.fromTo('#overlayInfo', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out', delay: 0.1 });
+        gsap.fromTo(O.bg, { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'power2.out' });
         O.i.focus();
-    }
-
-    const src = await fetchWiki(wikiName);
-    O.s.style.display = 'none';
-
-    if (!isOpen) return;
-
-    if (src) {
-        const img = new Image();
-        img.onload = () => {
-            O.bg.style.backgroundImage = `url('${src}')`;
-            if (isReducedMotion()) {
-                O.bg.style.opacity = '1';
-                O.bg.style.transform = 'none';
-            } else {
-                gsap.fromTo(O.bg, { opacity: 0, scale: 1.06 }, { opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out' });
-            }
-        };
-        img.src = src;
-    } else {
-        O.bg.style.backgroundImage = 'radial-gradient(ellipse at 70% 40%, rgba(0,229,255,.08) 0%, transparent 70%)';
-        if (isReducedMotion()) O.bg.style.opacity = '1';
-        else gsap.to(O.bg, { opacity: 1, duration: 0.5 });
     }
 }
 
