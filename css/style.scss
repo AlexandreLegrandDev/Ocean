@@ -670,6 +670,47 @@ button:focus-visible {
   }
 }
 
+.a11y-controls {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .55rem;
+  padding: 1rem 1.8rem .7rem;
+  border-bottom: 1px solid rgba($cn, .08);
+  background: linear-gradient(180deg, rgba($c1, .35) 0%, rgba($c0, .1) 100%);
+
+  &__btn {
+    border: 1px solid rgba($cn, .22);
+    background: rgba($cn, .05);
+    color: rgba($cw, .92);
+    border-radius: 3px;
+    text-align: left;
+    padding: .55rem .7rem;
+    font-family: $ft;
+    font-size: .58rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color .2s ease, background .2s ease, color .2s ease;
+
+    &:hover {
+      border-color: rgba($cn, .42);
+      background: rgba($cn, .12);
+      color: $cw;
+    }
+
+    &[aria-pressed='true'] {
+      border-color: rgba($cn, .55);
+      background: rgba($cn, .2);
+      color: $cw;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $cw;
+      outline-offset: 2px;
+    }
+  }
+}
+
 .hud-header {
   display: flex;
   align-items: center;
@@ -1183,5 +1224,38 @@ button:focus-visible {
   .abyss-finale {
     opacity: 1;
     transform: none;
+  }
+}
+
+body.is-high-contrast {
+  .hero__desc,
+  .zone__intro,
+  .hud-title,
+  .hud-stat__label,
+  .hud-records li span,
+  .sonar-info span,
+  .sp-card small,
+  .abyss-finale__sub,
+  .sp-overlay__meta {
+    color: rgba($cw, .94);
+  }
+
+  .sp-card,
+  .hud-stat,
+  .hud-block,
+  .sonar-wrapper,
+  .a11y-controls__btn {
+    border-color: rgba($cw, .38);
+  }
+
+  .a11y-controls__btn {
+    background: rgba($cw, .08);
+  }
+
+  .hero__cta,
+  .abyss-finale__back,
+  .sp-overlay__wiki {
+    border-color: rgba($cw, .55);
+    color: $cw;
   }
 }

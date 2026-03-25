@@ -14,13 +14,85 @@ const ZONES = [
 
 const EL = id => document.getElementById(id);
 const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-const isReducedMotion = () => motionQuery.matches;
+const STORAGE_KEYS = {
+    forceReducedMotion: 'oceanForceReducedMotion',
+    highContrast: 'oceanHighContrast'
+};
+
+const motionToggleBtn = EL('motionToggle');
+const contrastToggleBtn = EL('contrastToggle');
+
+let forceReducedMotion = localStorage.getItem(STORAGE_KEYS.forceReducedMotion) === 'true';
+let highContrastEnabled = localStorage.getItem(STORAGE_KEYS.highContrast) === 'true';
+
+const isReducedMotion = () => forceReducedMotion || motionQuery.matches;
 
 const depthBar = EL('depthBar');
 const depthFill = EL('depthFill');
 const depthValue = EL('depthValue');
 const sonarDepth = EL('sonarDepth');
 const zoneAnnouncer = EL('zoneAnnouncer');
+
+function setAnnouncerText(text) {
+    if (!zoneAnnouncer) return;
+    zoneAnnouncer.textContent = '';
+    window.setTimeout(() => {
+        zoneAnnouncer.textContent = text;
+    }, 20);
+}
+
+function applyAccessibilityPreferences() {
+    document.body.classList.toggle('is-high-contrast', highContrastEnabled);
+
+    if (motionToggleBtn) {
+        motionToggleBtn.setAttribute('aria-pressed', String(forceReducedMotion));
+        motionToggleBtn.textContent = forceReducedMotion
+            ? 'Réduction animations: activée'
+            : 'Réduction animations: auto';
+    }
+
+    if (contrastToggleBtn) {
+        contrastToggleBtn.setAttribute('aria-pressed', String(highContrastEnabled));
+        contrastToggleBtn.textContent = highContrastEnabled
+            ? 'Contraste renforcé: activé'
+            : 'Contraste renforcé: désactivé';
+    }
+}
+
+applyAccessibilityPreferences();
+
+if (motionToggleBtn) {
+    motionToggleBtn.addEventListener('click', () => {
+        forceReducedMotion = !forceReducedMotion;
+        localStorage.setItem(STORAGE_KEYS.forceReducedMotion, String(forceReducedMotion));
+        applyAccessibilityPreferences();
+        setAnnouncerText(
+            forceReducedMotion
+                ? 'Réduction des animations activée.'
+                : 'Réduction des animations revenue au réglage système.'
+        );
+        window.location.reload();
+    });
+}
+
+if (contrastToggleBtn) {
+    contrastToggleBtn.addEventListener('click', () => {
+        highContrastEnabled = !highContrastEnabled;
+        localStorage.setItem(STORAGE_KEYS.highContrast, String(highContrastEnabled));
+        applyAccessibilityPreferences();
+        setAnnouncerText(
+            highContrastEnabled
+                ? 'Contraste renforcé activé.'
+                : 'Contraste renforcé désactivé.'
+        );
+    });
+}
+
+if (typeof motionQuery.addEventListener === 'function') {
+    motionQuery.addEventListener('change', () => {
+        if (!forceReducedMotion) applyAccessibilityPreferences();
+    });
+}
 
 function updateDepthProgress() {
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
@@ -43,6 +115,7 @@ window.addEventListener('resize', updateDepthProgress);
 updateDepthProgress();
 
 let currentZone = -1;
+let lastAnnouncedZone = -1;
 function updatePanel(i, announce = false) {
     const z = ZONES[i];
     if (!z) return;
@@ -59,8 +132,9 @@ function updatePanel(i, announce = false) {
         gsap.fromTo('.hud-header', { opacity: 0.4 }, { opacity: 1, duration: 0.35, ease: 'power2.out' });
     }
 
-    if (announce && zoneAnnouncer) {
-        zoneAnnouncer.textContent = `Zone active: ${z.name}, profondeur ${z.depth}.`;
+    if (announce && i !== lastAnnouncedZone) {
+        setAnnouncerText(`Zone active: ${z.name}, profondeur ${z.depth}.`);
+        lastAnnouncedZone = i;
     }
 }
 

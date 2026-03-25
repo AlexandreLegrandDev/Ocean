@@ -334,6 +334,15 @@
       <aside class="side-panel" id="sidePanel"
         aria-label="Panneau d'informations océaniques">
 
+        <div class="a11y-controls" role="group" aria-label="Réglages d'accessibilité">
+          <button class="a11y-controls__btn" id="motionToggle" type="button" aria-pressed="false">
+            Réduction animations: auto
+          </button>
+          <button class="a11y-controls__btn" id="contrastToggle" type="button" aria-pressed="false">
+            Contraste renforcé: désactivé
+          </button>
+        </div>
+
         <!-- Zone indicator (Header) -->
         <div class="hud-header">
           <div class="hud-header__status">
@@ -347,8 +356,8 @@
         <div class="hud-scroll">
 
           <!-- Bloc 1 : Paramètres environnementaux -->
-          <div class="hud-block">
-            <h3 class="hud-title">Environnement</h3>
+          <section class="hud-block" role="region" aria-labelledby="hud-environment-title">
+            <h3 class="hud-title" id="hud-environment-title">Environnement</h3>
             <div class="hud-grid">
               <div class="hud-stat">
                 <span class="hud-stat__label">Température</span>
@@ -371,37 +380,37 @@
                 </div>
               </div>
             </div>
-          </div>
+          </section>
 
           <!-- Bloc 3 : Records -->
-          <div class="hud-block">
-            <h3 class="hud-title">Records</h3>
+          <section class="hud-block" role="region" aria-labelledby="hud-records-title">
+            <h3 class="hud-title" id="hud-records-title">Records</h3>
             <ul class="hud-records">
               <li><span>Profondeur max</span><b>11 034 m</b></li>
               <li><span>Pression max</span><b>1 100 atm</b></li>
               <li><span>Température min</span><b>−2°C</b></li>
               <li><span>Océan inexploré</span><b class="cn">~95%</b></li>
             </ul>
-          </div>
+          </section>
 
           <!-- Bloc 4 : Sonar -->
-          <div class="hud-block hud-block--sonar">
-            <h3 class="hud-title">Sonar Actif</h3>
+          <section class="hud-block hud-block--sonar" role="region" aria-labelledby="hud-sonar-title">
+            <h3 class="hud-title" id="hud-sonar-title">Sonar Actif</h3>
             <div class="sonar-wrapper">
-              <div class="sonar-view">
+              <div class="sonar-view" aria-hidden="true">
                 <div class="sonar-grid"></div>
                 <div class="sonar-sweep"></div>
                 <span class="sonar-blip sb-1"></span>
                 <span class="sonar-blip sb-2"></span>
                 <span class="sonar-blip sb-3"></span>
               </div>
-              <div class="sonar-info">
+              <div class="sonar-info" role="status" aria-live="polite" aria-atomic="true">
                 <span class="sonar-status">● Scan en cours</span>
                 <span class="sonar-depth">Écho: <b id="sonarDepth">0</b>m</span>
                 <span class="sonar-freq">84 kHz</span>
               </div>
             </div>
-          </div>
+          </section>
 
         </div>
       </aside>

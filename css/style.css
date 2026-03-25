@@ -591,6 +591,43 @@ button:focus-visible {
   }
 }
 
+.a11y-controls {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+  padding: 1rem 1.8rem 0.7rem;
+  border-bottom: 1px solid rgba(0, 229, 255, 0.08);
+  background: linear-gradient(180deg, rgba(4, 28, 50, 0.35) 0%, rgba(2, 11, 28, 0.1) 100%);
+}
+.a11y-controls__btn {
+  border: 1px solid rgba(0, 229, 255, 0.22);
+  background: rgba(0, 229, 255, 0.05);
+  color: rgba(255, 255, 255, 0.92);
+  border-radius: 3px;
+  text-align: left;
+  padding: 0.55rem 0.7rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.a11y-controls__btn:hover {
+  border-color: rgba(0, 229, 255, 0.42);
+  background: rgba(0, 229, 255, 0.12);
+  color: #FFFFFF;
+}
+.a11y-controls__btn[aria-pressed=true] {
+  border-color: rgba(0, 229, 255, 0.55);
+  background: rgba(0, 229, 255, 0.2);
+  color: #FFFFFF;
+}
+.a11y-controls__btn:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
 .hud-header {
   display: flex;
   align-items: center;
@@ -1054,4 +1091,31 @@ button:focus-visible {
     opacity: 1;
     transform: none;
   }
+}
+body.is-high-contrast .hero__desc,
+body.is-high-contrast .zone__intro,
+body.is-high-contrast .hud-title,
+body.is-high-contrast .hud-stat__label,
+body.is-high-contrast .hud-records li span,
+body.is-high-contrast .sonar-info span,
+body.is-high-contrast .sp-card small,
+body.is-high-contrast .abyss-finale__sub,
+body.is-high-contrast .sp-overlay__meta {
+  color: rgba(255, 255, 255, 0.94);
+}
+body.is-high-contrast .sp-card,
+body.is-high-contrast .hud-stat,
+body.is-high-contrast .hud-block,
+body.is-high-contrast .sonar-wrapper,
+body.is-high-contrast .a11y-controls__btn {
+  border-color: rgba(255, 255, 255, 0.38);
+}
+body.is-high-contrast .a11y-controls__btn {
+  background: rgba(255, 255, 255, 0.08);
+}
+body.is-high-contrast .hero__cta,
+body.is-high-contrast .abyss-finale__back,
+body.is-high-contrast .sp-overlay__wiki {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #FFFFFF;
 }
