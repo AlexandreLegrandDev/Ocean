@@ -323,7 +323,37 @@ if (heroCta) {
 function initSectionFishSwarm() {
     if (isReducedMotion()) return;
 
-    const fishImage = 'assets/anime_fish_tilapia.png';
+    const defaultFishImages = ['assets/anime_fish_tilapia.png'];
+
+    const fishImagesBySection = {
+        'zone-0': [
+            'assets/anime_fish_clown.png',
+            'assets/anime_fish_dolphin.png',
+            'assets/anime_fish_hammer_shark.png',
+            'assets/anime_fish_ray.png',
+            'assets/anime_fish_tuna.png',
+            'assets/anime_fish_turtle.png'
+        ],
+        'zone-1': [
+            'assets/anime_fish_tilapia.png'
+        ],
+    };
+
+    const getSectionFishImages = section => {
+        const sectionImages = fishImagesBySection[section.id];
+        if (Array.isArray(sectionImages) && sectionImages.length) {
+            return sectionImages;
+        }
+        return defaultFishImages;
+    };
+
+    const pickRandomFishImage = images => {
+        if (!Array.isArray(images) || images.length === 0) {
+            return defaultFishImages[0];
+        }
+        return images[Math.floor(Math.random() * images.length)];
+    };
+
     const depthFilters = [
         'hue-rotate(170deg) saturate(1.1) brightness(0.92) contrast(1.05) drop-shadow(0 0 10px rgba(0,160,255,.22))',
         'hue-rotate(185deg) saturate(1.05) brightness(0.8) contrast(1.08) drop-shadow(0 0 10px rgba(0,130,230,.2))',
@@ -332,6 +362,7 @@ function initSectionFishSwarm() {
     ];
 
     document.querySelectorAll('.zone').forEach((section, sectionIndex) => {
+        const fishImages = getSectionFishImages(section);
         const layer = document.createElement('div');
         layer.className = 'zone__fish-layer';
         section.appendChild(layer);
@@ -342,7 +373,7 @@ function initSectionFishSwarm() {
         for (let i = 0; i < fishCount; i++) {
             const fish = document.createElement('img');
             fish.className = 'zone__fish';
-            fish.src = fishImage;
+            fish.src = pickRandomFishImage(fishImages);
             fish.alt = '';
             fish.setAttribute('aria-hidden', 'true');
 
