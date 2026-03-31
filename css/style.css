@@ -511,16 +511,18 @@ button:focus-visible {
 .sp-card b {
   display: block;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: #FFFFFF;
-  margin-bottom: 0.2rem;
-  font-weight: 500;
+  margin-bottom: 0.35rem;
+  font-weight: 700;
+  line-height: 1.25;
 }
 .sp-card small {
-  font-size: 0.84rem;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.8rem;
+  color: rgba(214, 235, 247, 0.88);
   letter-spacing: 0.01em;
   line-height: 1.45;
+  font-style: italic;
 }
 .sp-card--abyss {
   background: rgba(2, 11, 28, 0.5);
@@ -721,12 +723,11 @@ button:focus-visible {
 
 .hud-scroll {
   flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 0 1.8rem 2rem;
+  overflow: hidden;
+  padding: 0 1.6rem 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.95rem;
 }
 .hud-scroll:focus-visible {
   outline: 2px solid #00E5FF;
@@ -741,40 +742,40 @@ button:focus-visible {
 }
 
 .hud-block {
-  padding-top: 1.5rem;
+  padding-top: 1rem;
   border-top: 1px solid rgba(0, 229, 255, 0.06);
 }
 .hud-block:first-child {
   border-top: none;
-  padding-top: 1rem;
+  padding-top: 0.7rem;
 }
 
 .hud-title {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.74rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 1rem;
+  margin-bottom: 0.72rem;
 }
 
 .hud-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 0.72rem;
 }
 
 .hud-stat {
   background: linear-gradient(180deg, rgba(4, 28, 50, 0.58) 0%, rgba(2, 11, 28, 0.45) 100%);
   border: 1px solid rgba(0, 229, 255, 0.08);
   border-radius: 4px;
-  padding: 0.8rem;
+  padding: 0.65rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.3rem;
 }
 .hud-stat__label {
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.9);
@@ -787,7 +788,7 @@ button:focus-visible {
 }
 .hud-stat__val {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.98rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 0 2.8px #FFFFFF, 0 0 6px rgba(255, 255, 255, 0.35);
@@ -812,25 +813,25 @@ button:focus-visible {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 .hud-records li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.72rem 0;
+  padding: 0.48rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 .hud-records li:last-child {
   border-bottom: none;
 }
 .hud-records li span {
-  font-size: 0.84rem;
+  font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.88);
 }
 .hud-records li b {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -842,11 +843,11 @@ button:focus-visible {
 .sonar-wrapper {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 0.75rem;
   background: rgba(4, 28, 50, 0.3);
   border: 1px solid rgba(0, 229, 255, 0.05);
   border-radius: 4px;
-  padding: 1rem;
+  padding: 0.72rem;
 }
 
 .sonar-view {
@@ -958,7 +959,7 @@ button:focus-visible {
 }
 .sonar-info span {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.74rem;
   letter-spacing: 0.04em;
   color: rgba(255, 255, 255, 0.9);
   text-transform: uppercase;
@@ -970,7 +971,7 @@ button:focus-visible {
 }
 .sonar-info .sonar-depth b {
   color: #FFFFFF;
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   font-weight: 500;
 }
 
