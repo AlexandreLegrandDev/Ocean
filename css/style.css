@@ -348,6 +348,11 @@ button:focus-visible {
 .zone--abyss {
   background: linear-gradient(180deg, #020810 0%, #010204 100%);
   min-height: 100vh;
+  overflow: hidden;
+}
+
+.zone--abyss .zone__fish-layer {
+  inset: 0 -42px 0 -42px;
 }
 .zone__rays {
   position: absolute;
