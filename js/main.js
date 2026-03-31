@@ -498,7 +498,26 @@ const SPECIES_IMAGE_BY_WIKI = {
     'Architeuthis dux': 'assets/calamar_geant.jpg',
     'Hoplostethus atlanticus': 'assets/orange_roughy.jpg',
     'Argyropelecus': 'assets/poisson_hachette.png',
-    'Chiroteuthis': 'assets/Chiroteuthis.png'
+    'Chiroteuthis': 'assets/Chiroteuthis.png',
+    'Idiacanthus fasciola': 'assets/dragon_fish.png',
+    'Oplophorus': 'assets/Oplophorus.png',
+    'Stomias boa': 'assets/stomias.png',
+    'Vampyroteuthis infernalis': 'assets/calamar_vampire.png',
+    'Eurypharynx pelecanoides': 'assets/gulper.png',
+    'Coryphaenoides': 'assets/macrure.png',
+    'Grimpoteuthis': 'assets/dumbo.png',
+    'Macropinna microstoma': 'assets/Poisson-baril.png',
+    'Anoplogaster cornuta': 'assets/fangtooth.png',
+    'Phronima': 'assets/Phronima.png',
+    'Chimaera monstrosa': 'assets/chimere.png',
+    'Abyssobrotula galatheae': 'assets/Abyssobrotula.png',
+    'Pseudoliparis swirei': 'assets/snailfish.png',
+    'Hirondellea gigas': 'assets/Hirondellea.png',
+    'Polychaeta': 'assets/Polychaeta.png',
+    'Holothuroidea': 'assets/Holothuria.png',
+    'Brisingida': 'assets/Brisingida.png',
+    'Kiwa hirsuta': 'assets/yeti_crab.png',
+    'Opisthoteuthis': 'assets/Opisthoteuthis.png'
 };
 
 let isOpen = false;
