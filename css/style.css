@@ -14,7 +14,7 @@ body {
   background: #020B1C;
   color: #FFFFFF;
   font-family: "Inter", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   overflow-x: hidden;
 }
 body::-webkit-scrollbar {
@@ -59,7 +59,7 @@ button {
   transform: translateY(-140%);
   transition: transform 0.2s ease;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -93,9 +93,9 @@ button:focus-visible {
 }
 .depth-bar__top, .depth-bar__bot {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.42rem;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
 }
 .depth-bar__track {
   flex: 1;
@@ -140,8 +140,8 @@ button:focus-visible {
   left: calc(100% + 10px);
   bottom: calc(50% - 90px);
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.58rem;
-  color: #00E5FF;
+  font-size: 0.82rem;
+  color: #7FEFFF;
   text-shadow: 0 0 7px #00E5FF, 0 0 15px rgba(0, 229, 255, 0.35);
   white-space: nowrap;
   pointer-events: none;
@@ -220,10 +220,10 @@ button:focus-visible {
 }
 .hero__eyebrow {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.58rem;
-  letter-spacing: 0.3em;
+  font-size: 0.84rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(0, 229, 255, 0.6);
+  color: rgba(127, 239, 255, 0.92);
 }
 .hero__title {
   font-family: "Space Grotesk", sans-serif;
@@ -238,10 +238,10 @@ button:focus-visible {
   display: block;
 }
 .hero__desc {
-  font-size: clamp(0.8rem, 1.4vw, 0.95rem);
-  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(0.95rem, 1.55vw, 1.08rem);
+  color: rgba(255, 255, 255, 0.9);
   max-width: 420px;
-  line-height: 1.75;
+  line-height: 1.8;
 }
 .hero__cta {
   display: inline-flex;
@@ -249,12 +249,12 @@ button:focus-visible {
   gap: 0.5rem;
   padding: 0.75rem 1.8rem;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  border: 1px solid rgba(0, 229, 255, 0.4);
+  border: 1px solid rgba(0, 229, 255, 0.62);
   border-radius: 2px;
-  color: rgba(0, 229, 255, 0.8);
+  color: rgba(200, 249, 255, 0.98);
   transition: all 0.3s ease;
   margin-top: 0.5rem;
 }
@@ -326,10 +326,10 @@ button:focus-visible {
 .hstat span {
   display: block;
   margin-top: 0.25rem;
-  font-size: 0.5rem;
-  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.62);
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .zone {
@@ -419,19 +419,19 @@ button:focus-visible {
 .zone__badge {
   display: inline-block;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.52rem;
-  letter-spacing: 0.25em;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #00E5FF;
-  border: 1px solid rgba(0, 229, 255, 0.25);
+  color: #7FEFFF;
+  border: 1px solid rgba(127, 239, 255, 0.45);
   padding: 0.3rem 0.85rem;
   border-radius: 2px;
   margin-bottom: 1rem;
   background: rgba(0, 229, 255, 0.04);
 }
 .zone__badge--abyss {
-  color: rgba(0, 229, 255, 0.5);
-  border-color: rgba(0, 229, 255, 0.15);
+  color: rgba(127, 239, 255, 0.88);
+  border-color: rgba(127, 239, 255, 0.35);
 }
 .zone__title {
   font-family: "Space Grotesk", sans-serif;
@@ -442,8 +442,8 @@ button:focus-visible {
   text-shadow: 0 0 4.2px #00E5FF, 0 0 9px rgba(0, 229, 255, 0.35);
 }
 .zone__intro {
-  font-size: clamp(0.8rem, 1.3vw, 0.93rem);
-  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(0.95rem, 1.45vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.8;
   max-width: 420px;
 }
@@ -467,7 +467,7 @@ button:focus-visible {
 .species-grid {
   clear: both;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1px;
   margin-top: 2.5rem;
   border: 1px solid rgba(0, 229, 255, 0.08);
@@ -489,7 +489,8 @@ button:focus-visible {
   display: block;
   width: 100%;
   text-align: left;
-  padding: 1.1rem 1rem;
+  padding: 1.2rem 1rem;
+  min-height: 130px;
   border-right: 1px solid rgba(0, 229, 255, 0.07);
   border-bottom: 1px solid rgba(0, 229, 255, 0.07);
   transition: background 0.25s ease;
@@ -510,21 +511,22 @@ button:focus-visible {
 .sp-card b {
   display: block;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.95rem;
   color: #FFFFFF;
   margin-bottom: 0.2rem;
   font-weight: 500;
 }
 .sp-card small {
-  font-size: 0.58rem;
-  color: rgba(255, 255, 255, 0.68);
-  letter-spacing: 0.03em;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.01em;
+  line-height: 1.45;
 }
 .sp-card--abyss {
   background: rgba(2, 11, 28, 0.5);
 }
 .sp-card--abyss b {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.94);
 }
 
 .abyss-finale {
@@ -558,18 +560,18 @@ button:focus-visible {
   color: #00E5FF;
 }
 .abyss-finale__sub {
-  font-size: clamp(0.78rem, 1.3vw, 0.9rem);
-  color: rgba(255, 255, 255, 0.3);
-  line-height: 1.85;
+  font-size: clamp(0.96rem, 1.45vw, 1.08rem);
+  color: rgba(255, 255, 255, 0.86);
+  line-height: 1.75;
   max-width: 380px;
 }
 .abyss-finale__back {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(0, 229, 255, 0.45);
-  border: 1px solid rgba(0, 229, 255, 0.18);
+  color: rgba(170, 244, 255, 0.95);
+  border: 1px solid rgba(127, 239, 255, 0.5);
   padding: 0.65rem 1.5rem;
   border-radius: 2px;
   transition: all 0.3s;
@@ -656,10 +658,10 @@ button:focus-visible {
   color: rgba(255, 255, 255, 0.92);
   border-radius: 3px;
   text-align: left;
-  padding: 0.55rem 0.7rem;
+  padding: 0.72rem 0.85rem;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.58rem;
-  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   cursor: pointer;
   transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
@@ -702,17 +704,17 @@ button:focus-visible {
 }
 .hud-header__name {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
   color: #00E5FF;
   text-transform: uppercase;
   font-weight: 500;
 }
 .hud-header__depth {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.92rem;
   font-weight: 700;
-  color: rgba(0, 229, 255, 0.7);
+  color: rgba(127, 239, 255, 0.92);
   text-shadow: 0 0 5.6px #00E5FF, 0 0 12px rgba(0, 229, 255, 0.35);
   letter-spacing: 0.05em;
 }
@@ -749,10 +751,10 @@ button:focus-visible {
 
 .hud-title {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.55rem;
-  letter-spacing: 0.2em;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.62);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 1rem;
 }
 
@@ -772,10 +774,10 @@ button:focus-visible {
   gap: 0.4rem;
 }
 .hud-stat__label {
-  font-size: 0.55rem;
-  letter-spacing: 0.1em;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.9);
   display: flex;
   justify-content: space-between;
 }
@@ -785,7 +787,7 @@ button:focus-visible {
 }
 .hud-stat__val {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.98rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 0 2.8px #FFFFFF, 0 0 6px rgba(255, 255, 255, 0.35);
@@ -816,19 +818,19 @@ button:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.6rem 0;
+  padding: 0.72rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 .hud-records li:last-child {
   border-bottom: none;
 }
 .hud-records li span {
-  font-size: 0.6rem;
-  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.88);
 }
 .hud-records li b {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -956,9 +958,9 @@ button:focus-visible {
 }
 .sonar-info span {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.52rem;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.9);
   text-transform: uppercase;
 }
 .sonar-info .sonar-status {
@@ -968,7 +970,7 @@ button:focus-visible {
 }
 .sonar-info .sonar-depth b {
   color: #FFFFFF;
-  font-size: 0.65rem;
+  font-size: 0.9rem;
   font-weight: 500;
 }
 
@@ -1038,8 +1040,8 @@ button:focus-visible {
   right: -1rem;
   background: none;
   border: 1px solid rgba(0, 229, 255, 0.25);
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.88rem;
   width: 36px;
   height: 36px;
   border-radius: 2px;
@@ -1062,8 +1064,8 @@ button:focus-visible {
 }
 .sp-overlay__latin {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.58rem;
-  letter-spacing: 0.25em;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #00E5FF;
   text-shadow: 0 0 7px #00E5FF, 0 0 15px rgba(0, 229, 255, 0.35);
@@ -1080,19 +1082,19 @@ button:focus-visible {
   margin-bottom: 1rem;
 }
 .sp-overlay__meta {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 1.5rem;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 .sp-overlay__wiki {
   display: inline-block;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.58rem;
-  letter-spacing: 0.18em;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(0, 229, 255, 0.6);
-  border: 1px solid rgba(0, 229, 255, 0.2);
+  color: rgba(170, 244, 255, 0.98);
+  border: 1px solid rgba(127, 239, 255, 0.55);
   padding: 0.55rem 1.2rem;
   border-radius: 2px;
   transition: all 0.3s ease;
@@ -1113,9 +1115,9 @@ button:focus-visible {
   top: 1.2rem;
   right: 1.2rem;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.48rem;
-  letter-spacing: 0.15em;
-  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.74);
   text-transform: uppercase;
 }
 @media (max-width: 640px) {
