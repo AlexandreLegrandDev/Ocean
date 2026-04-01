@@ -435,8 +435,6 @@ function initSectionFishSwarm() {
                 {
                     x: startX,
                     scale,
-                    // Le sprite source est considéré orienté vers la droite.
-                    // Quand le poisson nage vers la gauche, on applique un miroir horizontal.
                     scaleX: mirroredScaleX,
                     rotate: 0
                 },
