@@ -1,2 +1,4 @@
 *.md
 /reports/*
+/dist/*
+/node_modules/*

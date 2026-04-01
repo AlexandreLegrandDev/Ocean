@@ -2,10 +2,8 @@
   "name": "ocean-experience",
   "version": "1.0.0",
   "scripts": {
-    "scss:build": "sass --no-source-map css/style.scss css/style.css",
-    "scss:watch": "sass --watch --no-source-map css/style.scss css/style.css",
     "dev": "vite",
-    "build": "npm run scss:build && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "a11y:axe": "npx --yes @axe-core/cli http://127.0.0.1:4173 --exit",
     "a11y:lighthouse": "npx --yes lighthouse http://127.0.0.1:4173 --only-categories=accessibility --output html --output-path ./reports/lighthouse-accessibility.html --chrome-flags=\"--headless=new\""

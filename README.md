@@ -1,15 +1,16 @@
 # Ocean Experience
 
-Site immersif sur les profondeurs océaniques (HTML, SCSS, JavaScript, GSAP), avec un focus accessibilité.
+Projet web immersif sur les profondeurs océaniques.
 
-## Objectif
+## Stack
 
-Créer une expérience de scroll narrative de la surface aux abysses, avec:
-- animations fluides
-- panneau de données contextuelles
-- interactions accessibles (navigation clavier, contraste, motion reduced)
+- HTML
+- SCSS
+- JavaScript
+- GSAP
+- Vite
 
-## Démarrage rapide
+## Lancement (simple et direct)
 
 1. Installer les dépendances
 
@@ -17,70 +18,36 @@ Créer une expérience de scroll narrative de la surface aux abysses, avec:
 npm install
 ```
 
-2. Compiler le SCSS
-
-```bash
-npm run scss:build
-```
-
-3. Lancer le serveur de dev
+2. Lancer le projet en développement
 
 ```bash
 npm run dev
 ```
 
-## Commandes utiles
-
-- Dev server Vite: `npm run dev`
-- Build production (inclut compilation SCSS): `npm run build`
-- Preview du build: `npm run preview`
-- Compiler SCSS une fois: `npm run scss:build`
-- Compiler SCSS en continu: `npm run scss:watch`
-
-## Workflow SCSS
-
-- Source de travail: [css/style.scss](css/style.scss)
-- Fichier servi dans la page: [css/style.css](css/style.css)
-- [index.html](index.html) référence [css/style.css](css/style.css)
-
-En pratique:
-- tu modifies [css/style.scss](css/style.scss)
-- tu lances `npm run scss:watch`
-- le CSS est régénéré automatiquement
-
-## Accessibilité
-
-Audit Axe:
+3. Générer la version de production
 
 ```bash
-npm run a11y:axe
+npm run build
 ```
 
-Audit Lighthouse (catégorie accessibilité):
+4. Prévisualiser la version de production
 
 ```bash
-npm run a11y:lighthouse
+npm run preview
 ```
 
-Rapports disponibles dans [reports](reports).
+## SCSS
 
-## Structure principale
+- Le style source du projet est uniquement dans [css/style.scss](css/style.scss).
+- Le SCSS est compilé automatiquement par Vite.
+- Aucun fichier CSS source n'est requis dans le workflow.
+
+## Structure utile
 
 - [index.html](index.html): page principale
-- [js/main.js](js/main.js): logique GSAP + interactions
-- [css/style.scss](css/style.scss): source SCSS
-- [css/style.css](css/style.css): CSS compilé
-- [presentation.html](presentation.html): support de présentation
-- [reports](reports): résultats d'audit
+- [js/main.js](js/main.js): logique et interactions
+- [css/style.scss](css/style.scss): styles du projet
 
-## Checklist avant livraison
+## Crédits
 
-1. `npm run scss:build`
-2. `npm run build`
-3. `npm run a11y:axe`
-4. Vérification visuelle desktop + mobile
-
-## Notes
-
-- Si un style ne s'applique pas, vérifier que [css/style.css](css/style.css) a bien été recompilé.
-- En cas de conflit d'animations, tester avec le bouton de réduction des animations dans l'UI.
+Nathanaël Leang, Matéo Bal, Alexandre Legrand, MMI2 Web.

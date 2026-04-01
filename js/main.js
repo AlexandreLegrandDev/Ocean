@@ -1,7 +1,12 @@
+import '../css/style.scss';
+
 /**
  * OCEAN EXPERIENCE — main.js
  * Accessibility-first interactions with GSAP + ScrollTrigger.
  */
+
+const gsap = window.gsap;
+const ScrollTrigger = window.ScrollTrigger;
 
 gsap.registerPlugin(ScrollTrigger);
 
