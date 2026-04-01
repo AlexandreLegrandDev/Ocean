@@ -17,9 +17,11 @@ body {
   font-weight: 400;
   overflow-x: hidden;
 }
+
 body::-webkit-scrollbar {
   width: 2px;
 }
+
 body::-webkit-scrollbar-thumb {
   background: rgba(0, 229, 255, 0.35);
 }
@@ -63,6 +65,7 @@ button {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
 .skip-link:focus-visible {
   transform: translateY(0);
   outline: 2px solid #FFFFFF;
@@ -75,6 +78,9 @@ button:focus-visible {
   outline-offset: 3px;
 }
 
+/* ==============================
+   Depth Bar
+============================== */
 .depth-bar {
   position: fixed;
   left: 0;
@@ -91,12 +97,14 @@ button:focus-visible {
   border-right: 1px solid rgba(0, 229, 255, 0.07);
   backdrop-filter: blur(6px);
 }
+
 .depth-bar__top, .depth-bar__bot {
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.78rem;
   letter-spacing: 0.06em;
   color: #FFFFFF;
 }
+
 .depth-bar__track {
   flex: 1;
   width: 3px;
@@ -106,6 +114,7 @@ button:focus-visible {
   max-height: 70vh;
   overflow: visible;
 }
+
 .depth-bar__fill {
   position: absolute;
   top: 0;
@@ -116,6 +125,7 @@ button:focus-visible {
   border-radius: 2px;
   transition: height 0.06s linear;
 }
+
 .depth-bar__cursor {
   position: absolute;
   bottom: -6px;
@@ -127,6 +137,7 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
 }
+
 .depth-bar__dot {
   width: 10px;
   height: 10px;
@@ -135,6 +146,7 @@ button:focus-visible {
   box-shadow: 0 0 7px #00E5FF, 0 0 17.5px rgba(0, 229, 255, 0.3);
   animation: pulse 2.2s ease-in-out infinite;
 }
+
 .depth-bar__bubble {
   position: absolute;
   left: calc(100% + 10px);
@@ -147,6 +159,7 @@ button:focus-visible {
   pointer-events: none;
   letter-spacing: 0.06em;
 }
+
 @media (max-width: 900px) {
   .depth-bar {
     width: 36px;
@@ -157,7 +170,6 @@ button:focus-visible {
     display: none;
   }
 }
-
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
@@ -172,6 +184,7 @@ button:focus-visible {
   display: flex;
   margin-left: 56px;
 }
+
 @media (max-width: 900px) {
   .layout {
     margin-left: 36px;
@@ -183,12 +196,14 @@ button:focus-visible {
     flex-direction: column;
   }
 }
-
 .main-scroll {
   flex: 1 1 0;
   min-width: 0;
 }
 
+/* ==============================
+   Hero Section
+============================== */
 .hero {
   position: relative;
   height: 100vh;
@@ -199,6 +214,7 @@ button:focus-visible {
   overflow: hidden;
   background: linear-gradient(180deg, #093250 0%, #062037 35%, #041C32 70%, #020B1C 100%);
 }
+
 .hero__canvas {
   position: absolute;
   bottom: 0;
@@ -208,6 +224,7 @@ button:focus-visible {
   pointer-events: none;
   opacity: 0.7;
 }
+
 .hero__content {
   position: relative;
   z-index: 2;
@@ -218,6 +235,7 @@ button:focus-visible {
   gap: 1.4rem;
   padding: 0 2rem;
 }
+
 .hero__eyebrow {
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.84rem;
@@ -225,6 +243,7 @@ button:focus-visible {
   text-transform: uppercase;
   color: rgba(127, 239, 255, 0.92);
 }
+
 .hero__title {
   font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
@@ -232,17 +251,20 @@ button:focus-visible {
   line-height: 1;
   letter-spacing: -0.03em;
 }
+
 .hero__title span {
   color: #00E5FF;
   text-shadow: 0 0 15.4px #00E5FF, 0 0 33px rgba(0, 229, 255, 0.35);
   display: block;
 }
+
 .hero__desc {
   font-size: clamp(0.95rem, 1.55vw, 1.08rem);
   color: rgba(255, 255, 255, 0.9);
   max-width: 420px;
   line-height: 1.8;
 }
+
 .hero__cta {
   display: inline-flex;
   align-items: center;
@@ -258,16 +280,19 @@ button:focus-visible {
   transition: all 0.3s ease;
   margin-top: 0.5rem;
 }
+
 .hero__cta svg {
   width: 14px;
   animation: bob 2s ease-in-out infinite;
 }
+
 .hero__cta:hover {
   background: rgba(0, 229, 255, 0.08);
   border-color: #00E5FF;
   color: #00E5FF;
   box-shadow: 0 0 10px #00E5FF, 0 0 25px rgba(0, 229, 255, 0.3);
 }
+
 .hero__cta:focus-visible {
   background: rgba(0, 229, 255, 0.12);
   border-color: #00E5FF;
@@ -275,6 +300,7 @@ button:focus-visible {
   outline: 2px solid #FFFFFF;
   outline-offset: 2px;
 }
+
 .hero__stats {
   position: absolute;
   bottom: 0;
@@ -286,13 +312,13 @@ button:focus-visible {
   backdrop-filter: blur(12px);
   z-index: 2;
 }
+
 @media (max-width: 640px) {
   .hero__stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
 }
-
 @keyframes bob {
   0%, 100% {
     transform: translateY(0);
@@ -307,9 +333,11 @@ button:focus-visible {
   text-align: center;
   border-right: 1px solid rgba(0, 229, 255, 0.08);
 }
+
 .hstat:last-child {
   border-right: 0;
 }
+
 .hstat b {
   display: block;
   font-family: "Space Grotesk", sans-serif;
@@ -318,11 +346,13 @@ button:focus-visible {
   color: #00E5FF;
   text-shadow: 0 0 7.7px #00E5FF, 0 0 16.5px rgba(0, 229, 255, 0.35);
 }
+
 .hstat b em {
   font-style: normal;
   font-size: 0.65em;
   opacity: 0.55;
 }
+
 .hstat span {
   display: block;
   margin-top: 0.25rem;
@@ -332,6 +362,9 @@ button:focus-visible {
   color: rgba(255, 255, 255, 0.88);
 }
 
+/* ==============================
+   Zone Sections
+============================== */
 .zone {
   position: relative;
   padding: 6rem 4rem 6rem 4rem;
@@ -339,12 +372,15 @@ button:focus-visible {
   border-top: 1px solid rgba(0, 229, 255, 0.08);
   overflow: visible;
 }
+
 .zone--dark {
   background: linear-gradient(180deg, #041C32 0%, #020D24 100%);
 }
+
 .zone--darker {
   background: linear-gradient(180deg, #020D24 0%, #020810 100%);
 }
+
 .zone--abyss {
   background: linear-gradient(180deg, #020810 0%, #010204 100%);
   min-height: 100vh;
@@ -354,6 +390,7 @@ button:focus-visible {
 .zone--abyss .zone__fish-layer {
   inset: 0 -42px 0 -42px;
 }
+
 .zone__rays {
   position: absolute;
   top: 0;
@@ -363,6 +400,7 @@ button:focus-visible {
   pointer-events: none;
   overflow: hidden;
 }
+
 .zone__rays .ray {
   position: absolute;
   top: -10%;
@@ -371,32 +409,38 @@ button:focus-visible {
   background: linear-gradient(to bottom, rgba(0, 229, 255, 0.12), transparent);
   transform-origin: top;
 }
+
 .zone__rays .ray:nth-child(1) {
   left: 20%;
   transform: rotate(-5deg);
   animation: ray 7s ease-in-out infinite;
 }
+
 .zone__rays .ray:nth-child(2) {
   left: 38%;
   transform: rotate(-1deg);
   animation: ray 9s ease-in-out infinite 1.2s;
 }
+
 .zone__rays .ray:nth-child(3) {
   left: 58%;
   transform: rotate(3deg);
   animation: ray 8s ease-in-out infinite 0.6s;
 }
+
 .zone__rays .ray:nth-child(4) {
   left: 76%;
   transform: rotate(7deg);
   animation: ray 6s ease-in-out infinite 2s;
 }
+
 .zone__canvas {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 0;
 }
+
 .zone__fish-layer {
   position: absolute;
   inset: -18px -42px;
@@ -404,6 +448,7 @@ button:focus-visible {
   pointer-events: none;
   z-index: 1;
 }
+
 .zone__fish {
   position: absolute;
   left: 0;
@@ -415,18 +460,21 @@ button:focus-visible {
   filter: var(--fish-filter);
   mix-blend-mode: normal;
 }
+
 .zone__header {
   position: relative;
   z-index: 2;
   max-width: 480px;
   margin-bottom: 3rem;
 }
+
 .zone__header:focus-visible {
   outline: 2px solid rgba(127, 239, 255, 0.9);
   outline-offset: 6px;
   border-radius: 10px;
   background: rgba(0, 25, 55, 0.35);
 }
+
 .zone__badge {
   display: inline-block;
   font-family: "Space Grotesk", sans-serif;
@@ -440,10 +488,12 @@ button:focus-visible {
   margin-bottom: 1rem;
   background: rgba(0, 229, 255, 0.04);
 }
+
 .zone__badge--abyss {
   color: rgba(127, 239, 255, 0.88);
   border-color: rgba(127, 239, 255, 0.35);
 }
+
 .zone__title {
   font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
@@ -452,12 +502,14 @@ button:focus-visible {
   margin-bottom: 0.9rem;
   text-shadow: 0 0 4.2px #00E5FF, 0 0 9px rgba(0, 229, 255, 0.35);
 }
+
 .zone__intro {
   font-size: clamp(0.95rem, 1.45vw, 1.05rem);
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.8;
   max-width: 420px;
 }
+
 @media (max-width: 768px) {
   .zone {
     padding: 4rem 1.5rem;
@@ -466,7 +518,6 @@ button:focus-visible {
     opacity: 0.24 !important;
   }
 }
-
 @keyframes ray {
   0%, 100% {
     opacity: 0.8;
@@ -475,6 +526,9 @@ button:focus-visible {
     opacity: 0.2;
   }
 }
+/* ==============================
+   Species Cards
+============================== */
 .species-grid {
   clear: both;
   display: grid;
@@ -487,12 +541,12 @@ button:focus-visible {
   position: relative;
   z-index: 2;
 }
+
 @media (max-width: 640px) {
   .species-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
-
 .sp-card {
   appearance: none;
   background: transparent;
@@ -507,18 +561,22 @@ button:focus-visible {
   transition: background 0.25s ease;
   cursor: pointer;
 }
+
 .sp-card:hover {
   background: rgba(0, 229, 255, 0.05);
 }
+
 .sp-card:focus-visible {
   background: rgba(0, 229, 255, 0.1);
   outline: 2px solid #00E5FF;
   outline-offset: -2px;
 }
+
 .sp-card__icon {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
 }
+
 .sp-card b {
   display: block;
   font-family: "Space Grotesk", sans-serif;
@@ -528,6 +586,7 @@ button:focus-visible {
   font-weight: 700;
   line-height: 1.25;
 }
+
 .sp-card small {
   font-size: 0.8rem;
   color: rgba(214, 235, 247, 0.88);
@@ -535,9 +594,11 @@ button:focus-visible {
   line-height: 1.45;
   font-style: italic;
 }
+
 .sp-card--abyss {
   background: rgba(2, 11, 28, 0.5);
 }
+
 .sp-card--abyss b {
   color: rgba(255, 255, 255, 0.94);
 }
@@ -557,11 +618,13 @@ button:focus-visible {
   border: 1px solid rgba(0, 229, 255, 0.08);
   border-radius: 8px;
 }
+
 .abyss-finale__line {
   width: 1px;
   height: 60px;
   background: linear-gradient(to bottom, transparent, rgba(0, 229, 255, 0.45));
 }
+
 .abyss-finale__text {
   font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
@@ -569,15 +632,18 @@ button:focus-visible {
   line-height: 1.2;
   text-shadow: 0 0 9.1px #00E5FF, 0 0 19.5px rgba(0, 229, 255, 0.35);
 }
+
 .abyss-finale__text strong {
   color: #00E5FF;
 }
+
 .abyss-finale__sub {
   font-size: clamp(0.96rem, 1.45vw, 1.08rem);
   color: rgba(255, 255, 255, 0.86);
   line-height: 1.75;
   max-width: 380px;
 }
+
 .abyss-finale__back {
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.82rem;
@@ -589,11 +655,13 @@ button:focus-visible {
   border-radius: 2px;
   transition: all 0.3s;
 }
+
 .abyss-finale__back:hover {
   color: #00E5FF;
   border-color: rgba(0, 229, 255, 0.45);
   box-shadow: 0 0 8px #00E5FF, 0 0 20px rgba(0, 229, 255, 0.3);
 }
+
 .abyss-finale__back:focus-visible {
   color: #00E5FF;
   border-color: rgba(0, 229, 255, 0.55);
@@ -601,6 +669,9 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
+/* ==============================
+   Side Panel / HUD
+============================== */
 .side-panel {
   width: 34%;
   min-width: 300px;
@@ -619,6 +690,7 @@ button:focus-visible {
   -webkit-backdrop-filter: blur(18px) saturate(120%);
   isolation: isolate;
 }
+
 .side-panel::before {
   content: "";
   position: absolute;
@@ -627,6 +699,7 @@ button:focus-visible {
   background: radial-gradient(120% 56% at 10% 0%, rgba(0, 229, 255, 0.08) 0%, transparent 62%), linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 42%);
   z-index: 0;
 }
+
 .side-panel::after {
   content: "";
   position: absolute;
@@ -637,10 +710,12 @@ button:focus-visible {
   -webkit-backdrop-filter: blur(8px);
   z-index: 0;
 }
+
 .side-panel > * {
   position: relative;
   z-index: 1;
 }
+
 @media (max-width: 900px) {
   .side-panel {
     min-width: 260px;
@@ -656,7 +731,6 @@ button:focus-visible {
     border-top: 1px solid rgba(0, 229, 255, 0.15);
   }
 }
-
 .a11y-controls {
   display: grid;
   grid-template-columns: 1fr;
@@ -665,6 +739,7 @@ button:focus-visible {
   border-bottom: 1px solid rgba(0, 229, 255, 0.08);
   background: linear-gradient(180deg, rgba(4, 28, 50, 0.62) 0%, rgba(2, 11, 28, 0.45) 100%);
 }
+
 .a11y-controls__btn {
   border: 1px solid rgba(0, 229, 255, 0.22);
   background: rgba(0, 229, 255, 0.05);
@@ -679,16 +754,19 @@ button:focus-visible {
   cursor: pointer;
   transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
+
 .a11y-controls__btn:hover {
   border-color: rgba(0, 229, 255, 0.42);
   background: rgba(0, 229, 255, 0.12);
   color: #FFFFFF;
 }
+
 .a11y-controls__btn[aria-pressed=true] {
   border-color: rgba(0, 229, 255, 0.55);
   background: rgba(0, 229, 255, 0.2);
   color: #FFFFFF;
 }
+
 .a11y-controls__btn:focus-visible {
   outline: 2px solid #FFFFFF;
   outline-offset: 2px;
@@ -702,11 +780,13 @@ button:focus-visible {
   background: linear-gradient(180deg, rgba(4, 28, 50, 0.66) 0%, rgba(2, 11, 28, 0.36) 100%);
   border-bottom: 1px solid rgba(0, 229, 255, 0.1);
 }
+
 .hud-header__status {
   display: flex;
   align-items: center;
   gap: 0.6rem;
 }
+
 .hud-header__status .pulse-dot {
   width: 8px;
   height: 8px;
@@ -715,6 +795,7 @@ button:focus-visible {
   box-shadow: 0 0 5px #00E5FF, 0 0 12.5px rgba(0, 229, 255, 0.3);
   animation: pulse 2.2s ease-in-out infinite;
 }
+
 .hud-header__name {
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.92rem;
@@ -723,6 +804,7 @@ button:focus-visible {
   text-transform: uppercase;
   font-weight: 500;
 }
+
 .hud-header__depth {
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.92rem;
@@ -740,13 +822,16 @@ button:focus-visible {
   flex-direction: column;
   gap: 0.95rem;
 }
+
 .hud-scroll:focus-visible {
   outline: 2px solid #00E5FF;
   outline-offset: -2px;
 }
+
 .hud-scroll::-webkit-scrollbar {
   width: 3px;
 }
+
 .hud-scroll::-webkit-scrollbar-thumb {
   background: rgba(0, 229, 255, 0.2);
   border-radius: 3px;
@@ -756,6 +841,7 @@ button:focus-visible {
   padding-top: 1rem;
   border-top: 1px solid rgba(0, 229, 255, 0.06);
 }
+
 .hud-block:first-child {
   border-top: none;
   padding-top: 0.7rem;
@@ -785,6 +871,7 @@ button:focus-visible {
   flex-direction: column;
   gap: 0.3rem;
 }
+
 .hud-stat__label {
   font-size: 0.76rem;
   letter-spacing: 0.06em;
@@ -793,10 +880,12 @@ button:focus-visible {
   display: flex;
   justify-content: space-between;
 }
+
 .hud-stat__label em {
   font-style: normal;
   color: #00E5FF;
 }
+
 .hud-stat__val {
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.9rem;
@@ -812,6 +901,7 @@ button:focus-visible {
   overflow: hidden;
   margin-top: 0.3rem;
 }
+
 .hud-bar__fill {
   height: 100%;
   background: linear-gradient(to right, rgba(0, 229, 255, 0.3), #00E5FF);
@@ -826,6 +916,7 @@ button:focus-visible {
   flex-direction: column;
   gap: 0.3rem;
 }
+
 .hud-records li {
   display: flex;
   justify-content: space-between;
@@ -833,19 +924,23 @@ button:focus-visible {
   padding: 0.48rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
+
 .hud-records li:last-child {
   border-bottom: none;
 }
+
 .hud-records li span {
   font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.88);
 }
+
 .hud-records li b {
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.84rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
 }
+
 .hud-records li b.cn {
   color: #00E5FF;
   text-shadow: 0 0 5.6px #00E5FF, 0 0 12px rgba(0, 229, 255, 0.35);
@@ -880,11 +975,13 @@ button:focus-visible {
   border: 1px solid rgba(0, 229, 255, 0.15);
   transform: scale(0.5);
 }
+
 .sonar-grid::before, .sonar-grid::after {
   content: "";
   position: absolute;
   background: rgba(0, 229, 255, 0.2);
 }
+
 .sonar-grid::before {
   top: -50%;
   bottom: -50%;
@@ -892,6 +989,7 @@ button:focus-visible {
   width: 1px;
   transform: translateX(-50%);
 }
+
 .sonar-grid::after {
   left: -50%;
   right: -50%;
@@ -926,16 +1024,19 @@ button:focus-visible {
   box-shadow: 0 0 4px #00E5FF, 0 0 10px rgba(0, 229, 255, 0.3);
   opacity: 0;
 }
+
 .sonar-blip.sb-1 {
   top: 20%;
   left: 40%;
   animation: blip 2.5s infinite 0.2s;
 }
+
 .sonar-blip.sb-2 {
   top: 60%;
   left: 70%;
   animation: blip 2.5s infinite 1.2s;
 }
+
 .sonar-blip.sb-3 {
   top: 75%;
   left: 30%;
@@ -968,6 +1069,7 @@ button:focus-visible {
   flex-direction: column;
   gap: 0.3rem;
 }
+
 .sonar-info span {
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.74rem;
@@ -975,11 +1077,13 @@ button:focus-visible {
   color: rgba(255, 255, 255, 0.9);
   text-transform: uppercase;
 }
+
 .sonar-info .sonar-status {
   color: #00E5FF;
   text-shadow: 0 0 5.6px #00E5FF, 0 0 12px rgba(0, 229, 255, 0.35);
   animation: blink 2s step-end infinite;
 }
+
 .sonar-info .sonar-depth b {
   color: #FFFFFF;
   font-size: 0.84rem;
@@ -996,11 +1100,15 @@ button:focus-visible {
 .sp-card[data-wiki] {
   cursor: pointer;
 }
+
 .sp-card[data-wiki]:hover b {
   color: #00E5FF;
   text-shadow: 0 0 4.2px #00E5FF, 0 0 9px rgba(0, 229, 255, 0.35);
 }
 
+/* ==============================
+   Species Overlay
+============================== */
 .sp-overlay {
   position: fixed;
   inset: 0;
@@ -1011,9 +1119,11 @@ button:focus-visible {
   pointer-events: none;
   opacity: 0;
 }
+
 .sp-overlay.is-open {
   pointer-events: all;
 }
+
 .sp-overlay__bg {
   position: absolute;
   inset: 0;
@@ -1021,12 +1131,14 @@ button:focus-visible {
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .sp-overlay__bg::before {
   content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse at 60% 50%, transparent 30%, rgba(2, 11, 28, 0.88) 80%), linear-gradient(to top, #020B1C 0%, rgba(2, 11, 28, 0.6) 30%, transparent 60%), linear-gradient(to right, rgba(2, 11, 28, 0.7) 0%, transparent 40%);
 }
+
 .sp-overlay__spinner {
   position: absolute;
   top: 50%;
@@ -1040,12 +1152,14 @@ button:focus-visible {
   animation: spin 0.8s linear infinite;
   display: none;
 }
+
 .sp-overlay__info {
   position: relative;
   z-index: 2;
   padding: 2.5rem 3rem 3rem;
   max-width: 460px;
 }
+
 .sp-overlay__close {
   position: absolute;
   top: -3rem;
@@ -1063,17 +1177,20 @@ button:focus-visible {
   justify-content: center;
   transition: all 0.25s ease;
 }
+
 .sp-overlay__close:hover {
   border-color: #00E5FF;
   color: #00E5FF;
   box-shadow: 0 0 6px #00E5FF, 0 0 15px rgba(0, 229, 255, 0.3);
 }
+
 .sp-overlay__close:focus-visible {
   border-color: #00E5FF;
   color: #00E5FF;
   outline: 2px solid #FFFFFF;
   outline-offset: 2px;
 }
+
 .sp-overlay__latin {
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.82rem;
@@ -1084,6 +1201,7 @@ button:focus-visible {
   margin-bottom: 0.8rem;
   font-style: italic;
 }
+
 .sp-overlay__name {
   font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
@@ -1093,12 +1211,14 @@ button:focus-visible {
   color: #FFFFFF;
   margin-bottom: 1rem;
 }
+
 .sp-overlay__meta {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 1.5rem;
   line-height: 1.75;
 }
+
 .sp-overlay__wiki {
   display: inline-block;
   font-family: "Space Grotesk", sans-serif;
@@ -1111,17 +1231,20 @@ button:focus-visible {
   border-radius: 2px;
   transition: all 0.3s ease;
 }
+
 .sp-overlay__wiki:hover {
   color: #00E5FF;
   border-color: rgba(0, 229, 255, 0.5);
   box-shadow: 0 0 6px #00E5FF, 0 0 15px rgba(0, 229, 255, 0.3);
 }
+
 .sp-overlay__wiki:focus-visible {
   color: #00E5FF;
   border-color: rgba(0, 229, 255, 0.6);
   outline: 2px solid #FFFFFF;
   outline-offset: 2px;
 }
+
 .sp-overlay__esc {
   position: absolute;
   top: 1.2rem;
@@ -1132,6 +1255,7 @@ button:focus-visible {
   color: rgba(255, 255, 255, 0.74);
   text-transform: uppercase;
 }
+
 @media (max-width: 640px) {
   .sp-overlay {
     align-items: flex-end;
@@ -1141,12 +1265,14 @@ button:focus-visible {
     max-width: 100%;
   }
 }
-
 @keyframes spin {
   to {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
+/* ==============================
+   Accessibility States
+============================== */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -1172,6 +1298,7 @@ body.is-high-contrast .abyss-finale__sub,
 body.is-high-contrast .sp-overlay__meta {
   color: rgba(255, 255, 255, 0.94);
 }
+
 body.is-high-contrast .sp-card,
 body.is-high-contrast .hud-stat,
 body.is-high-contrast .hud-block,
@@ -1179,9 +1306,11 @@ body.is-high-contrast .sonar-wrapper,
 body.is-high-contrast .a11y-controls__btn {
   border-color: rgba(255, 255, 255, 0.38);
 }
+
 body.is-high-contrast .a11y-controls__btn {
   background: rgba(255, 255, 255, 0.08);
 }
+
 body.is-high-contrast .hero__cta,
 body.is-high-contrast .abyss-finale__back,
 body.is-high-contrast .sp-overlay__wiki {
