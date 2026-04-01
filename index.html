@@ -1,222 +1,325 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ocean Depths</title>
-  <link rel="stylesheet" href="styles/main.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Découvrez l'Océan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Space+Grotesk:wght@300;500;700&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-  <header class="site-header" role="banner">
-    <h1>Ocean Depths</h1>
-  </header>
 
-  <aside class="depth-indicator" aria-label="Indicateur de profondeur" role="complementary">
-    <p class="depth-indicator__label">Depth</p>
-    <p class="depth-indicator__value" data-depth-counter>0 m</p>
-    <div class="depth-indicator__rule" aria-hidden="true">
-      <span class="depth-indicator__progress" data-depth-progress></span>
-      <ul class="depth-indicator__ticks" data-depth-ticks>
-        <li class="depth-indicator__tick" data-tick-depth="0"><span>0m</span></li>
-        <li class="depth-indicator__tick" data-tick-depth="2000"><span>2000m</span></li>
-        <li class="depth-indicator__tick" data-tick-depth="4000"><span>4000m</span></li>
-        <li class="depth-indicator__tick" data-tick-depth="6000"><span>6000m</span></li>
-        <li class="depth-indicator__tick" data-tick-depth="8000"><span>8000m</span></li>
-        <li class="depth-indicator__tick" data-tick-depth="10000"><span>10000m</span></li>
-      </ul>
+  <!-- ═══ DEPTH BAR ══════════════════════════════════════════════ -->
+  <div class="depth-bar" id="depthBar">
+    <span class="depth-bar__top">0m</span>
+    <div class="depth-bar__track">
+      <div class="depth-bar__fill" id="depthFill">
+        <div class="depth-bar__cursor">
+          <span class="depth-bar__dot"></span>
+        </div>
+      </div>
     </div>
-  </aside>
+    <span class="depth-bar__bot">11km</span>
+    <div class="depth-bar__bubble" id="depthBubble">
+      <span id="depthValue">0</span>m
+    </div>
+  </div>
 
-  <main class="depth-stages" id="content">
-    <section class="depth-stage" data-depth="0" aria-labelledby="surface-title">
-      <div class="depth-stage__inner">
-        <p class="depth-stage__meta">Depth marker: 0 m</p>
-        <h2 id="surface-title">Surface</h2>
-        <p>Palier initial de navigation.</p>
+  <!-- ═══ LAYOUT (2/3 scroll + 1/3 fixed panel) ════════════════ -->
+  <div class="layout">
 
-        <div class="depth-stage__grid">
-          <figure class="depth-card depth-card--image" data-animate="image">
-            <img src="https://picsum.photos/seed/ocean-surface/900/520" alt="Ocean surface sample" loading="lazy">
-            <figcaption>Surface current sample</figcaption>
-          </figure>
+    <!-- ── LEFT: contenu scrollable ──────────────────────────── -->
+    <main class="main-scroll" id="mainScroll">
 
-          <article class="depth-card depth-card--info" data-animate="card">
-            <h3>Visual Placeholder A</h3>
-            <p>Neutral content block used to validate reveal and staggered animations.</p>
-            <ul class="depth-card__metrics" aria-label="Key metrics">
-              <li>Current: moderate</li>
-              <li>Visibility: high</li>
-              <li>Signal: stable</li>
-            </ul>
-          </article>
+      <!-- HERO -->
+      <section class="hero" id="s-hero">
+        <canvas class="hero__canvas" id="waveCanvas"></canvas>
+        <div class="hero__content">
+          <p class="hero__eyebrow">Expérience immersive · Scroll pour plonger</p>
+          <h1 class="hero__title">Découvrez<br><span>l'Océan</span></h1>
+          <p class="hero__desc">De la surface aux abysses — une descente dans le plus grand biome de notre planète,
+            inexploré à 95%.</p>
+          <a class="hero__cta" href="#zone-0">
+            Plonger
+            <svg viewBox="0 0 16 16" fill="none">
+              <path d="M8 2v12M3 9l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </a>
+        </div>
+        <!-- Données hero bas -->
+        <div class="hero__stats">
+          <div class="hstat"><b>361<em>M km²</em></b><span>Surface totale</span></div>
+          <div class="hstat"><b>11 034<em>m</em></b><span>Plus grande profondeur</span></div>
+          <div class="hstat"><b>97<em>%</em></b><span>de l'eau sur Terre</span></div>
+          <div class="hstat"><b>228 000<em>+</em></b><span>Espèces répertoriées</span></div>
+        </div>
+      </section>
+
+      <!-- ── ZONE 0–200m ─────────────────────────────────────── -->
+      <section class="zone" id="zone-0" data-zone="0" data-depth-start="0" data-depth-end="200">
+        <div class="zone__rays">
+          <div class="ray"></div>
+          <div class="ray"></div>
+          <div class="ray"></div>
+          <div class="ray"></div>
         </div>
 
-        <div class="depth-floaters" aria-hidden="true">
-          <span class="depth-floater" data-animate="bubble"></span>
-          <span class="depth-floater" data-animate="bubble"></span>
-          <span class="depth-floater" data-animate="bubble"></span>
+        <div class="zone__header">
+          <span class="zone__badge">Zone Euphotique</span>
+          <h2 class="zone__title">0 — 200m</h2>
+          <p class="zone__intro">Là où la lumière règne. Les couleurs explosent, la vie abonde. La photosynthèse
+            alimente toute la chaîne alimentaire marine.</p>
         </div>
+
+        <!-- Grille espèces zone 0 -->
+        <div class="species-grid">
+          <div class="sp-card" data-wiki="Amphiprioninae">
+            <div class="sp-card__icon">🐠</div><b>Poisson-clown</b><small>Amphiprioninae · 1–15m</small>
+          </div>
+          <div class="sp-card" data-wiki="Sphyrna lewini">
+            <div class="sp-card__icon">🦈</div><b>Requin marteau</b><small>Sphyrna lewini · 0–300m</small>
+          </div>
+          <div class="sp-card" data-wiki="Chelonia mydas">
+            <div class="sp-card__icon">🐢</div><b>Tortue verte</b><small>Chelonia mydas · 0–200m</small>
+          </div>
+          <div class="sp-card" data-wiki="Tursiops truncatus">
+            <div class="sp-card__icon">🐬</div><b>Grand dauphin</b><small>Tursiops truncatus · 0–100m</small>
+          </div>
+          <div class="sp-card" data-wiki="Mobula birostris">
+            <div class="sp-card__icon">🦈</div><b>Raie manta</b><small>Mobula birostris · 0–120m</small>
+          </div>
+          <div class="sp-card" data-wiki="Octopus vulgaris">
+            <div class="sp-card__icon">🐙</div><b>Pieuvre commune</b><small>Octopus vulgaris · 0–200m</small>
+          </div>
+          <div class="sp-card" data-wiki="Thunnus thynnus">
+            <div class="sp-card__icon">🐟</div><b>Thon rouge</b><small>Thunnus thynnus · 0–500m</small>
+          </div>
+          <div class="sp-card" data-wiki="Aulostomus chinensis">
+            <div class="sp-card__icon">🎺</div><b>Poisson-trompette</b><small>Aulostomus chinensis · 0–100m</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── ZONE 200–1000m ──────────────────────────────────── -->
+      <section class="zone zone--dark" id="zone-1" data-zone="1" data-depth-start="200" data-depth-end="1000">
+        <div class="zone__header">
+          <span class="zone__badge">Zone Mésopélagique</span>
+          <h2 class="zone__title">200 — 1 000m</h2>
+          <p class="zone__intro">La pénombre s'installe. La lumière solaire s'éteint progressivement. La bioluminescence
+            devient le seul langage dans ce crépuscule permanent.</p>
+        </div>
+
+        <div class="species-grid">
+          <div class="sp-card" data-wiki="Myctophidae">
+            <div class="sp-card__icon">🐡</div><b>Poisson-lanterne</b><small>Myctophidae · 200–1000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Architeuthis dux">
+            <div class="sp-card__icon">🦑</div><b>Calmar géant</b><small>Architeuthis dux · 300–1000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Hoplostethus atlanticus">
+            <div class="sp-card__icon">🐟</div><b>Hoplostète orange</b><small>Hoplostethus atlanticus ·
+              180–1800m</small>
+          </div>
+          <div class="sp-card" data-wiki="Argyropelecus">
+            <div class="sp-card__icon">🪝</div><b>Poisson-hachette</b><small>Argyropelecus · 200–600m</small>
+          </div>
+          <div class="sp-card" data-wiki="Chiroteuthis">
+            <div class="sp-card__icon">🦑</div><b>Chiroteuthis</b><small>Chiroteuthidae · 500–1000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Idiacanthus fasciola">
+            <div class="sp-card__icon">🐉</div><b>Poisson-dragon</b><small>Idiacanthus fasciola · 500–2000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Oplophorus">
+            <div class="sp-card__icon">🦐</div><b>Crevette oplophoridae</b><small>Oplophorus · 400–900m</small>
+          </div>
+          <div class="sp-card" data-wiki="Stomias boa">
+            <div class="sp-card__icon">🐟</div><b>Stomias</b><small>Stomias boa · 200–800m</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── ZONE 1000–4000m ─────────────────────────────────── -->
+      <section class="zone zone--darker" id="zone-2" data-zone="2" data-depth-start="1000" data-depth-end="4000">
+        <div class="zone__header">
+          <span class="zone__badge">Zone Bathypélagique</span>
+          <h2 class="zone__title">1 000 — 4 000m</h2>
+          <p class="zone__intro">Obscurité totale. La pression atteint 400 atmosphères. La vie ici s'est adaptée à
+            l'extrême — des formes que la lumière du jour n'a jamais touchées.</p>
+        </div>
+
+        <div class="species-grid">
+          <div class="sp-card" data-wiki="Vampyroteuthis infernalis">
+            <div class="sp-card__icon">🦑</div><b>Calmar vampire</b><small>Vampyroteuthis infernalis · 600–3000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Eurypharynx pelecanoides">
+            <div class="sp-card__icon">🐍</div><b>Grandgousier</b><small>Eurypharynx pelecanoides · 500–3000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Coryphaenoides">
+            <div class="sp-card__icon">🐟</div><b>Macrure</b><small>Coryphaenoides · 1000–4000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Grimpoteuthis">
+            <div class="sp-card__icon">🐙</div><b>Poulpe Dumbo</b><small>Grimpoteuthis · 1000–5000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Macropinna microstoma">
+            <div class="sp-card__icon">🔭</div><b>Poisson-baril</b><small>Macropinna microstoma · 600–800m</small>
+          </div>
+          <div class="sp-card" data-wiki="Anoplogaster cornuta">
+            <div class="sp-card__icon">🦷</div><b>Fangtooth</b><small>Anoplogaster cornuta · 200–5000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Phronima">
+            <div class="sp-card__icon">🦐</div><b>Phronima</b><small>Hyperiidae · 200–2000m</small>
+          </div>
+          <div class="sp-card" data-wiki="Chimaera monstrosa">
+            <div class="sp-card__icon">🐟</div><b>Chimère commune</b><small>Chimaera monstrosa · 300–1000m</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── ZONE 4000–11000m ABYSSES ────────────────────────── -->
+      <section class="zone zone--abyss" id="zone-3" data-zone="3" data-depth-start="4000" data-depth-end="11000">
+        <canvas class="zone__canvas" id="abyssCanvas"></canvas>
+
+        <div class="zone__header">
+          <span class="zone__badge zone__badge--abyss">Zone Hadale · Abysses</span>
+          <h2 class="zone__title">4 000 — 11 000m</h2>
+          <p class="zone__intro">Le silence absolu. La pression équivaut à 50 avions de ligne empilés sur votre corps.
+            La température frôle 0°C. Ici vivent des êtres que la science découvre encore.</p>
+        </div>
+
+        <div class="species-grid">
+          <div class="sp-card sp-card--abyss" data-wiki="Abyssobrotula galatheae">
+            <div class="sp-card__icon">🐟</div><b>Abyssobrotula</b><small>Abyssobrotula galatheae · 8370m</small>
+          </div>
+          <div class="sp-card sp-card--abyss" data-wiki="Pseudoliparis swirei">
+            <div class="sp-card__icon">🐟</div><b>Poisson des fosses</b><small>Pseudoliparis swirei · 7 966m</small>
+          </div>
+          <div class="sp-card sp-card--abyss" data-wiki="Hirondellea gigas">
+            <div class="sp-card__icon">🦐</div><b>Amphipode géant</b><small>Hirondellea gigas · 10 900m</small>
+          </div>
+          <div class="sp-card sp-card--abyss" data-wiki="Polychaeta">
+            <div class="sp-card__icon">🐛</div><b>Polychète abyssal</b><small>Polychaeta · 4000–11000m</small>
+          </div>
+          <div class="sp-card sp-card--abyss" data-wiki="Holothuroidea">
+            <div class="sp-card__icon">🐚</div><b>Holothurie</b><small>Holothuria · 4000–10000m</small>
+          </div>
+          <div class="sp-card sp-card--abyss" data-wiki="Brisingida">
+            <div class="sp-card__icon">⭐</div><b>Étoile abyssale</b><small>Brisingida · 3000–6000m</small>
+          </div>
+          <div class="sp-card sp-card--abyss" data-wiki="Kiwa hirsuta">
+            <div class="sp-card__icon">🦀</div><b>Crabe yéti</b><small>Kiwa hirsuta · 2200–2500m</small>
+          </div>
+          <div class="sp-card sp-card--abyss" data-wiki="Opisthoteuthis">
+            <div class="sp-card__icon">🐙</div><b>Céphalopode hadal</b><small>Opisthoteuthis · 4000–9000m</small>
+          </div>
+        </div>
+
+        <!-- Message final -->
+        <div class="abyss-finale">
+          <div class="abyss-finale__line"></div>
+          <p class="abyss-finale__text">Plus de <strong>80%</strong> de l'océan reste inconnu.</p>
+          <p class="abyss-finale__sub">Nous connaissons mieux la surface de Mars que le fond de nos propres mers.</p>
+          <a href="#s-hero" class="abyss-finale__back">↑ Remonter à la surface</a>
+        </div>
+      </section>
+
+    </main><!-- /main-scroll -->
+
+    <!-- ── RIGHT: panneau fixe (DASHBOARD) ─────────────────────── -->
+    <aside class="side-panel" id="sidePanel">
+
+      <!-- Zone indicator (Header) -->
+      <div class="hud-header">
+        <div class="hud-header__status">
+          <span class="pulse-dot"></span>
+          <span id="zoneName" class="hud-header__name">Surface</span>
+        </div>
+        <div class="hud-header__depth" id="zoneDepthLabel">0m</div>
       </div>
-    </section>
 
-    <section class="depth-stage" data-depth="200" aria-labelledby="twilight-title">
-      <div class="depth-stage__inner">
-        <p class="depth-stage__meta">Depth marker: 200 m</p>
-        <h2 id="twilight-title">Twilight Zone</h2>
-        <p>Zone de transition avec faible luminosité.</p>
+      <!-- Contenu Scrollable du Dashboard -->
+      <div class="hud-scroll">
 
-        <div class="depth-stage__grid">
-          <figure class="depth-card depth-card--image" data-animate="image">
-            <img src="https://picsum.photos/seed/ocean-twilight/900/520" alt="Twilight zone sample" loading="lazy">
-            <figcaption>Filtered light sample</figcaption>
-          </figure>
-
-          <article class="depth-card depth-card--info" data-animate="card">
-            <h3>Visual Placeholder B</h3>
-            <p>Secondary block to test section transitions and timeline chaining.</p>
-            <ul class="depth-card__metrics" aria-label="Key metrics">
-              <li>Current: low</li>
-              <li>Visibility: medium</li>
-              <li>Signal: variable</li>
-            </ul>
-          </article>
+        <!-- Bloc 1 : Paramètres environnementaux -->
+        <div class="hud-block">
+          <h3 class="hud-title">Environnement</h3>
+          <div class="hud-grid">
+            <div class="hud-stat">
+              <span class="hud-stat__label">Température</span>
+              <span class="hud-stat__val" id="envTemp">15–25°C</span>
+            </div>
+            <div class="hud-stat">
+              <span class="hud-stat__label">Pression</span>
+              <span class="hud-stat__val" id="envPressure">1 atm</span>
+            </div>
+            <div class="hud-stat">
+              <span class="hud-stat__label">Luminosité</span>
+              <span class="hud-stat__val" id="envLight">100%</span>
+            </div>
+            <div class="hud-stat">
+              <span class="hud-stat__label">Biolum. <em id="bioLabel">2%</em></span>
+              <div class="hud-bar">
+                <div class="hud-bar__fill" id="bioFill" style="width:2%"></div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="depth-floaters" aria-hidden="true">
-          <span class="depth-floater" data-animate="bubble"></span>
-          <span class="depth-floater" data-animate="bubble"></span>
-          <span class="depth-floater" data-animate="bubble"></span>
+        <!-- Bloc 3 : Records -->
+        <div class="hud-block">
+          <h3 class="hud-title">Records</h3>
+          <ul class="hud-records">
+            <li><span>Profondeur max</span><b>11 034 m</b></li>
+            <li><span>Pression max</span><b>1 100 atm</b></li>
+            <li><span>Température min</span><b>−2°C</b></li>
+            <li><span>Océan inexploré</span><b class="cn">~95%</b></li>
+          </ul>
         </div>
+
+        <!-- Bloc 4 : Sonar -->
+        <div class="hud-block hud-block--sonar">
+          <h3 class="hud-title">Sonar Actif</h3>
+          <div class="sonar-wrapper">
+            <div class="sonar-view">
+              <div class="sonar-grid"></div>
+              <div class="sonar-sweep"></div>
+              <span class="sonar-blip sb-1"></span>
+              <span class="sonar-blip sb-2"></span>
+              <span class="sonar-blip sb-3"></span>
+            </div>
+            <div class="sonar-info">
+              <span class="sonar-status">● Scan en cours</span>
+              <span class="sonar-depth">Écho: <b id="sonarDepth">0</b>m</span>
+              <span class="sonar-freq">84 kHz</span>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </section>
+    </aside>
 
-    <section class="depth-stage" data-depth="1000" aria-labelledby="midnight-title">
-      <div class="depth-stage__inner">
-        <p class="depth-stage__meta">Depth marker: 1000 m</p>
-        <h2 id="midnight-title">Midnight Zone</h2>
-        <p>Zone profonde et sombre.</p>
+  </div><!-- /layout -->
 
-        <div class="depth-stage__grid">
-          <figure class="depth-card depth-card--image" data-animate="image">
-            <img src="https://picsum.photos/seed/ocean-midnight/900/520" alt="Midnight zone sample" loading="lazy">
-            <figcaption>Dark water sample</figcaption>
-          </figure>
+  <!-- SPECIES OVERLAY -->
+  <div class="sp-overlay" id="spOverlay">
+    <div class="sp-overlay__bg" id="overlayBg"></div>
+    <div class="sp-overlay__spinner" id="overlaySpinner"></div>
+    <div class="sp-overlay__info" id="overlayInfo">
+      <button class="sp-overlay__close" id="overlayClose" aria-label="Fermer">✕</button>
+      <p class="sp-overlay__latin" id="overlayLatin"></p>
+      <h2 class="sp-overlay__name" id="overlayName"></h2>
+      <p class="sp-overlay__meta" id="overlayMeta"></p>
+      <a class="sp-overlay__wiki" id="overlayLink" target="_blank" rel="noopener">Voir sur Wikipedia →</a>
+    </div>
+  </div>
 
-          <article class="depth-card depth-card--info" data-animate="card">
-            <h3>Visual Placeholder C</h3>
-            <p>Testing area for depth-linked animation states and text reveals.</p>
-            <ul class="depth-card__metrics" aria-label="Key metrics">
-              <li>Current: soft drift</li>
-              <li>Visibility: low</li>
-              <li>Signal: intermittent</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="depth-floaters" aria-hidden="true">
-          <span class="depth-floater" data-animate="bubble"></span>
-          <span class="depth-floater" data-animate="bubble"></span>
-          <span class="depth-floater" data-animate="bubble"></span>
-        </div>
-      </div>
-    </section>
-
-    <section class="depth-stage" data-depth="4000" aria-labelledby="abyssal-title">
-      <div class="depth-stage__inner">
-        <p class="depth-stage__meta">Depth marker: 4000 m</p>
-        <h2 id="abyssal-title">Abyssal Zone</h2>
-        <p>Zone abyssale à forte pression.</p>
-
-        <div class="depth-stage__grid">
-          <figure class="depth-card depth-card--image" data-animate="image">
-            <img src="https://picsum.photos/seed/ocean-abyssal/900/520" alt="Abyssal zone sample" loading="lazy">
-            <figcaption>Abyssal plateau sample</figcaption>
-          </figure>
-
-          <article class="depth-card depth-card--info" data-animate="card">
-            <h3>Visual Placeholder D</h3>
-            <p>Block reserved for future image overlays and timing experiments.</p>
-            <ul class="depth-card__metrics" aria-label="Key metrics">
-              <li>Current: calm</li>
-              <li>Visibility: very low</li>
-              <li>Signal: weak</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="depth-floaters" aria-hidden="true">
-          <span class="depth-floater" data-animate="bubble"></span>
-          <span class="depth-floater" data-animate="bubble"></span>
-          <span class="depth-floater" data-animate="bubble"></span>
-        </div>
-      </div>
-    </section>
-
-    <section class="depth-stage" data-depth="6000" aria-labelledby="hadal-title">
-      <div class="depth-stage__inner">
-        <p class="depth-stage__meta">Depth marker: 6000 m</p>
-        <h2 id="hadal-title">Hadal Zone</h2>
-        <p>Fosses océaniques profondes.</p>
-
-        <div class="depth-stage__grid">
-          <figure class="depth-card depth-card--image" data-animate="image">
-            <img src="https://picsum.photos/seed/ocean-hadal/900/520" alt="Hadal zone sample" loading="lazy">
-            <figcaption>Trench wall sample</figcaption>
-          </figure>
-
-          <article class="depth-card depth-card--info" data-animate="card">
-            <h3>Visual Placeholder E</h3>
-            <p>Extra target for scroll-scrub tests and delayed transitions.</p>
-            <ul class="depth-card__metrics" aria-label="Key metrics">
-              <li>Current: slow</li>
-              <li>Visibility: minimal</li>
-              <li>Signal: sparse</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="depth-floaters" aria-hidden="true">
-          <span class="depth-floater" data-animate="bubble"></span>
-          <span class="depth-floater" data-animate="bubble"></span>
-          <span class="depth-floater" data-animate="bubble"></span>
-        </div>
-      </div>
-    </section>
-
-    <section class="depth-stage" data-depth="10000" aria-labelledby="trench-title">
-      <div class="depth-stage__inner">
-        <p class="depth-stage__meta">Depth marker: 10000 m</p>
-        <h2 id="trench-title">Ocean Trench</h2>
-        <p>Point extrême de la progression.</p>
-
-        <div class="depth-stage__grid">
-          <figure class="depth-card depth-card--image" data-animate="image">
-            <img src="https://picsum.photos/seed/ocean-trench/900/520" alt="Ocean trench sample" loading="lazy">
-            <figcaption>Extreme depth sample</figcaption>
-          </figure>
-
-          <article class="depth-card depth-card--info" data-animate="card">
-            <h3>Visual Placeholder F</h3>
-            <p>Final checkpoint to verify end-of-page trigger behavior.</p>
-            <ul class="depth-card__metrics" aria-label="Key metrics">
-              <li>Current: trench flow</li>
-              <li>Visibility: near zero</li>
-              <li>Signal: critical</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="depth-floaters" aria-hidden="true">
-          <span class="depth-floater" data-animate="bubble"></span>
-          <span class="depth-floater" data-animate="bubble"></span>
-          <span class="depth-floater" data-animate="bubble"></span>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-  <script src="scripts/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>
